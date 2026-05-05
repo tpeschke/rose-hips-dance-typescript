@@ -132,6 +132,7 @@ button:disabled:hover {
 
 textarea {
   letter-spacing: 1px;
+  font-family: lemonade;
 }
 
 ul {
