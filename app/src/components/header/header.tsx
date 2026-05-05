@@ -46,6 +46,7 @@ export default function Header() {
 
   useEffect(() => {
     setIsOpen(false)
+    document.body.scrollTop = document.documentElement.scrollTop = 0
   }, [location])
 
   return (

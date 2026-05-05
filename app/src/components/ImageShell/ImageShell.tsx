@@ -2,8 +2,11 @@ import './ImageShell.css'
 import star from '../../assets/star.png'
 import portrait from '../../assets/portrait.jpg'
 import sun from '../../assets/sun.png'
+import bellyDanceForTheSoul from '../../assets/classesImages/bellyDanceForTheSoul.jpg'
 
-type SrcOptions = 'star' | 'portrait' | 'sun'
+type SrcOptions = 'star' | 'portrait' | 'sun' | ClassOptions
+
+type ClassOptions = 'bellyDanceForTheSoul'
 
 interface Props {
     src: SrcOptions,
@@ -22,6 +25,8 @@ export default function ImageShell({ src, alt, width, height }: Props) {
                 return portrait
             case 'sun':
                 return sun
+            case 'bellyDanceForTheSoul':
+                return bellyDanceForTheSoul
         }
     }
 

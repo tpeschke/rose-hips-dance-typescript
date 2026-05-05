@@ -1,0 +1,149 @@
+.classes {
+  position: relative;
+  overflow: hidden;
+  padding: 50px 0 0;
+  background: var(--burgundy);
+}
+
+.classes span.filter-header {
+  background: var(--gold);
+  padding: 10px 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.classes span.filter-header h2 {
+  margin: 0 15px;
+}
+
+.classes .filter-buttons {
+  margin: 15px auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-evenly;
+  width: 50vw;
+  max-width: 500px;
+}
+
+.classes .filter-buttons button.on {
+  border: 1px solid transparent;
+  color: var(--gold);
+}
+
+.classes .filter-buttons button.on:hover {
+  border: 1px solid var(--lightGold);
+  color: var(--lightGold);
+}
+
+.class-card {
+  padding: 35px;
+  display: flex;
+  justify-content: center;
+  background: var(--burgundy);
+  z-index: 2;
+}
+
+.class-card .nav-id {
+  position: absolute;
+  top: -100px;
+  width: 0;
+  height: 0;
+}
+
+.class-card.odd {
+  background: var(--prussianBlue);
+  flex-direction: row-reverse;
+}
+
+.divider {
+  padding: 7px 0;
+  background: linear-gradient(0deg,
+      rgba(0, 49, 83, 1) 0%,
+      rgba(94, 7, 21, 1) 100%);
+}
+
+.classes .spacer {
+    height: 500px;
+    background: var(--prussianBlue);
+}
+
+.class-card>div {
+  margin: 0 15px;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.image-shell {
+  position: relative;
+  border: 6px solid #ffffffb9;
+  position: relative;
+  height: 400px;
+}
+
+.image-shell h1 {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  background: #ffffffb9;
+}
+
+.image-shell div {
+  width: 400px;
+  height: 400px;
+  background: var(--prussianBlue);
+}
+
+.class-body {
+  color: var(--white);
+}
+
+.class-body p {
+  margin-bottom: 15px;
+  white-space: pre-line;
+}
+
+.class-body strong {
+  color: var(--gold);
+}
+
+@media (max-width: 426px) {
+  .classes .filter-buttons {
+    width: 100vw;
+  }
+
+  .class-card,
+  .class-card.odd {
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .class-card>div:last-child {
+    padding: 15px 0;
+  }
+
+  .class-card>div.image-shell {
+    border: unset;
+    margin: 0;
+  }
+
+  .image-shell h1 {
+    font-size: 8vw;
+    background: #ffffff;
+  }
+
+  .divider, .classes .spacer {
+    display: none;
+  }
+}
+
+
+@media (max-width: 321px) {
+  .classes .filter-buttons {
+    margin-top: 0;
+  }
+}

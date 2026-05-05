@@ -1,0 +1,137 @@
+.registration {
+  position: relative;
+  overflow: hidden;
+  padding: 50px 0 35px;
+  min-height: 100vh;
+  background: var(--prussianBlue);
+  display: flex;
+  justify-content: space-around;
+}
+
+.registration .class-registration-card {
+  color: var(--white);
+  padding: 35px;
+  max-width: 1440px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.registration .class-registration-card h1 {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.registration .class-registration-card h2 {
+  font-size: 18px;
+  color: var(--white);
+  margin: 5px 0;
+}
+
+.registration .class-registration-card h2>strong {
+  color: var(--gold);
+}
+
+.registration .class-registration-card a {
+  color: var(--gold);
+  transition: .6s;
+}
+
+.registration .class-registration-card a:hover {
+  color: var(--lightGold);
+}
+
+.registration ul {
+  padding: 0;
+}
+
+.registration ul button {
+  padding: 5px 15px;
+}
+
+.registration .class-registration-card span {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.registration .class-registration-card span label {
+  margin-left: 15px;
+  color: var(--lightGray);
+}
+
+.registration .inputs-shell {
+  position: relative;
+  z-index: 2;
+  max-width: 1250px;
+}
+
+.registration .class-registration-card input,
+.registration .class-registration-card textarea {
+  background: #00000025;
+  border: unset;
+  border-bottom: 1px solid var(--gold);
+  color: var(--white);
+  margin-bottom: 5px;
+}
+
+.registration .class-registration-card textarea {
+  width: 100%;
+}
+
+.registration .class-registration-card .disclaimer {
+  margin: 15px 0;
+  font-weight: unset;
+}
+
+.registration .total-shell {
+  padding: 5px 15px;
+}
+
+.registration .delete {
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.registration .delete span {
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
+  background: var(--burgundy);
+  opacity: 0;
+  transition: 0.6s;
+}
+
+.registration .delete:hover span {
+  opacity: 1;
+}
+
+@media (max-width: 769px) {
+  .registration {
+    padding-bottom: 0px;
+  }
+
+  .registration .class-registration-card {
+    padding: 5px 15px
+  }
+
+  .registration .class-registration-card input,
+  .registration .class-registration-card textarea {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .registration .class-registration-card .inputs-shell span.agreement input {
+    width: unset;
+  }
+
+  .registration .class-registration-card .inputs-shell span:not(.agreement) label {
+    margin: 0 0 5px
+  }
+}
+
+@media (max-width: 376px) {
+  .registration button {
+    margin: 5px 0;
+  }
+}
