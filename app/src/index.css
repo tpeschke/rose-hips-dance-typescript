@@ -1,0 +1,207 @@
+@font-face {
+  font-family: mhiora; /* set name */
+  src: url('./assets/fonts/Mhiora.otf'); /* url of the font */
+}
+
+@font-face {
+  font-family: lemonade; /* set name */
+  src: url('./assets/fonts/MinimalistLemonade.otf'); /* url of the font */
+}
+
+:root {
+  --white: #f5f5f5;
+  --lightGray: #afafaf;
+  --black: #0a0a0a;
+  --burgundy: #5e0715;
+  --darkBurgundy: #42050f;
+  --prussianBlue: #003153;
+  --lightPrussianBlue: #003d68;
+  --gold: #c99418;
+  --lightGold: #e6a819;
+}
+
+body {
+  margin: 0;
+}
+
+html::-webkit-scrollbar {
+  background: var(--prussianBlue);
+  width: 5px;
+}
+
+html::-webkit-scrollbar-track {
+  border-radius: 8px;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: var(--gold);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  font-family: lemonade;
+}
+
+h1, h2 {
+  font-family: mhiora;
+}
+
+p {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+  transition: 0.6s;
+}
+
+a:hover {
+  color: var(--white);
+}
+
+button {
+  border: unset;
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: 0.6s;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--black);
+  font-family: lemonade;
+}
+
+button.gold {
+  background: var(--gold);
+}
+
+button:hover.gold {
+  background: var(--lightGold);
+  transform: translate(0, -3px);
+}
+
+button.blue {
+  background: var(--prussianBlue);
+  color: var(--white);
+}
+
+button:hover.blue {
+  background: var(--lightPrussianBlue);
+  color: var(--white);
+  transform: translate(0, -3px);
+}
+
+button.transparent {
+  background: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+}
+
+button:hover.transparent {
+  border: 1px solid var(--lightGold);
+  color: var(--lightGold);
+}
+
+button.full-transparent {
+  background: transparent;
+  color: var(--white);
+}
+
+button:hover.full-transparent {
+  color: var(--lightGold);
+}
+
+button:disabled {
+  background: transparent;
+  color: var(--lightGray);
+}
+
+button:disabled:hover {
+  background: transparent;
+  color: var(--lightGray);
+  cursor: unset;
+  transform: translate(0, 0);
+}
+
+textarea {
+  letter-spacing: 1px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.subtitle {
+  color: var(--lightGray);
+  letter-spacing: 1px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+p.eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+div.eyebrow img,
+div.strike-right img {
+  filter: invert(81%) sepia(29%) saturate(6897%) hue-rotate(3deg) brightness(89%) contrast(81%);
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  content: "";
+  height: 1px;
+  width: 50px;
+  background: var(--gold);
+}
+
+.strike-right {
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.strike-right::after {
+  content: "";
+  height: 1px;
+  width: 50px;
+  background: var(--gold);
+}
+
+.gray {
+  color: var(--lightGray);
+}
+
+.warning {
+  background: var(--burgundy);
+  padding: 5px;
+}
