@@ -3,8 +3,10 @@ import star from '../../assets/star.png'
 import portrait from '../../assets/portrait.jpg'
 import sun from '../../assets/sun.png'
 
+type SrcOptions = 'star' | 'portrait' | 'sun'
+
 interface Props {
-    src: string,
+    src: SrcOptions,
     alt: string,
     width: number
     height: number
@@ -12,7 +14,7 @@ interface Props {
 
 export default function ImageShell({ src, alt, width, height }: Props) {
 
-    function getImage(src: string) {
+    function getImage(src: SrcOptions) {
         switch (src) {
             case 'star':
                 return star
@@ -20,8 +22,6 @@ export default function ImageShell({ src, alt, width, height }: Props) {
                 return portrait
             case 'sun':
                 return sun
-            default:
-                return ''
         }
     }
 
