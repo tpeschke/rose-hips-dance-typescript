@@ -1,5 +1,4 @@
 import "./ourPhilosophy.css";
-import { mhiora, lemonade } from "../../utilities/fonts";
 
 export default function OurPhilosophy() {
   return (
@@ -11,7 +10,7 @@ export default function OurPhilosophy() {
         </div>
         <div>
           <p className="strike-right">Our Philosophy</p>
-          <h1 className={`${mhiora.className} antialiased`}>
+          <h1>
             Dance is a medicine for the{" "}
             <span className="italic">whole self</span>
           </h1>

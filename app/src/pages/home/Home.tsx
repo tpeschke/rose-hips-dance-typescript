@@ -1,14 +1,17 @@
 import BeginYourJourney from "./components/beginYourJourney/BeginYourJourney";
 import FindYourClass from "./components/findYourClass/findYourClass";
+import MainBanner from "./components/mainBanner/mainBanner";
+import Marquee from "./components/marquee/marquee";
+import OurPhilosophy from "./components/ourPhilosophy/ourPhilosophy";
 import "./Home.css";
 
 export default function Home() {
   return (
     <div className="home-page">
-      {/* <RotatingSun />
+      {/* <RotatingSun /> */}
       <MainBanner />
       <OurPhilosophy />
-      <Marquee /> */}
+      <Marquee />
       <FindYourClass />
       <BeginYourJourney />
       {/* <BackgroundImages /> */}

@@ -1,38 +1,36 @@
+import { Link } from "react-router-dom";
 import "./mainBanner.css";
-import Image from "next/image";
-import { mhiora, lemonade } from "../../utilities/fonts";
-import Link from "next/link";
+import ImageShell from "../../../../components/ImageShell/ImageShell";
 
 export default function MainBanner() {
   return (
     <div className="main-banner">
       <div className="columns">
-        <div className={`${lemonade.className} antialiased welcome`}>
+        <div className='welcome'>
           <p className="eyebrow">Belly Dance for the Soul</p>
-          <h1 className={`${mhiora.className} antialiased`}>Move. Heal.</h1>
-          <h1 className={`${mhiora.className} antialiased`}>
+          <h1>Move. Heal.</h1>
+          <h1>
             <span>Rediscover</span> Yourself.
           </h1>
           <p className="subtitle">
             Where Middle Eastern dance meets modern healing; gently restoring your body, your confidence, and helping you connect to your Aliveness.
           </p>
           <div className="class-buttons">
-            <Link href="/classes">
-              <button className={`${lemonade.className} antialiased blue`}>
+            <Link to="/classes">
+              <button className='blue'>
                 Begin Your Journey
               </button>
             </Link>
-            <Link href="/contact">
-              <button className={`${lemonade.className} antialiased transparent`}>
+            <Link to="/contact">
+              <button className='transparent'>
                 Learn More
               </button>
             </Link>
           </div>
         </div>
         <div className="portrait">
-          <Image
-            aria-hidden
-            src="/portrait.jpg"
+          <ImageShell
+            src="portrait"
             alt="a hot piece of ass"
             width={400}
             height={400}
