@@ -1,3 +1,5 @@
+import BackgroundImages from "../../components/backgroundImages/backgroundImages";
+import RotatingSun from "../../components/rotatingSun/rotatingSun";
 import BeginYourJourney from "./components/beginYourJourney/BeginYourJourney";
 import FindYourClass from "./components/findYourClass/findYourClass";
 import MainBanner from "./components/mainBanner/mainBanner";
@@ -8,13 +10,13 @@ import "./Home.css";
 export default function Home() {
   return (
     <div className="home-page">
-      {/* <RotatingSun /> */}
+      <RotatingSun />
       <MainBanner />
       <OurPhilosophy />
       <Marquee />
       <FindYourClass />
       <BeginYourJourney />
-      {/* <BackgroundImages /> */}
+      <BackgroundImages />
     </div>
   );
 }

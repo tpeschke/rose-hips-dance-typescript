@@ -1,5 +1,5 @@
+import ImageShell from "../ImageShell/ImageShell";
 import "./rotatingSun.css";
-import Image from "next/image";
 
 interface Props {
   sunDimensions?: number,
@@ -9,9 +9,8 @@ interface Props {
 export default function RotatingSun({sunDimensions = 1350, isLoading = false}: Props) {
   return (
     <div className={`rotating-sun ${isLoading && 'loading'}`}>
-      <Image
-        aria-hidden
-        src="/homeImages/sun.png"
+      <ImageShell
+        src="sun"
         alt="rotating sun"
         width={sunDimensions}
         height={sunDimensions}

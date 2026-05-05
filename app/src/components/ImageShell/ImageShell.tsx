@@ -1,6 +1,7 @@
 import './ImageShell.css'
 import star from '../../assets/star.png'
 import portrait from '../../assets/portrait.jpg'
+import sun from '../../assets/sun.png'
 
 interface Props {
     src: string,
@@ -17,6 +18,8 @@ export default function ImageShell({ src, alt, width, height }: Props) {
                 return star
             case 'portrait':
                 return portrait
+            case 'sun':
+                return sun
             default:
                 return ''
         }
