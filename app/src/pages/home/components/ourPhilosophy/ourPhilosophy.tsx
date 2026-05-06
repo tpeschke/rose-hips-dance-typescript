@@ -1,3 +1,4 @@
+import ImageShell from "../../../../components/ImageShell/ImageShell";
 import "./ourPhilosophy.css";
 
 export default function OurPhilosophy() {
@@ -5,26 +6,27 @@ export default function OurPhilosophy() {
     <div className="story-banner-shell">
       <div id="story-banner" className="story-banner">
         <div>
-          <div className="instructor-image"></div>
-          {/* <div className="studio-image"></div> */}
+          <ImageShell
+            src="philosophy"
+            alt={"The Joy of Movement"}
+            width={775}
+            height={450}
+          />
         </div>
         <div>
           <p className="strike-right">Our Philosophy</p>
           <h1>
-            Dance is a medicine for the{" "}
+            Dance is medicine for the{" "}
             <span className="italic">whole self</span>
           </h1>
           <p className="subtitle">
-            Rose Hips Dance was born from a deep belief that movement heals.
-            Rooted in the ancient art of belly dance, one of the world's oldest
-            healing traditions, our practice gently restores mobility, rebuilds
-            confidence, and reconnects you with the profound wisdom your body
-            holds.
+            Tiarra’s love for dance and mental health began in childhood, an underlying thread that would guide her for years to come. In a search to rediscover her own sense of aliveness, she journeyed through many modalities—Eastern and Western, mystical and scientific—gathering wisdom from each path she encountered.
           </p>
           <p className="subtitle">
-            Whether you're recovering from injury, navigating life's
-            transitions, or simply longing to feel alive in your body again, you
-            belong here.
+            Over time, she began to see the same truths echoing across traditions, like a rhythm beneath the surface. From these rhythms, Rose Hips Dance was born—a weaving together of movement, connection, and healing.
+          </p>
+          <p className="subtitle">
+            Here, dance becomes more than expression; it becomes a pathway. Through intentional movement, shared community, and embodied awareness, space is created for deep healing and a return to aliveness.
           </p>
           {/* <button className={`${lemonade.className} antialiased gold`}>
             Our Story

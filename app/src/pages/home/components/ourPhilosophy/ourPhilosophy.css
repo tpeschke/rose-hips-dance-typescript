@@ -1,7 +1,6 @@
 .story-banner-shell {
-  height: 100vh;
-  max-height: 750px;
   width: 100vw;
+  padding: 15px 0;
   display: flex;
   justify-content: center;
   position: relative;
@@ -12,12 +11,12 @@
 }
 
 .story-banner {
-  height: 100vh;
-  max-height: 750px;
-  max-width: 1440px;
+  min-height: 775px;
+  width: 1440px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .story-banner h1 {
@@ -35,45 +34,25 @@
 
 .story-banner>div {
   margin-top: 35px;
-  width: calc(100% - 450px);
-  position: relative;
   z-index: 2;
 }
 
-.story-banner>div:first-child {
-  width: 550px;
-  height: 450px;
-}
-
 .story-banner>div:last-child {
-  padding: 0 35px;
+  padding: 0 0 0 35px;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: space-between;
+  width: 580px
 }
 
 .story-banner>div:last-child>* {
   margin-bottom: 15px;
 }
 
-.story-banner .instructor-image {
-  background: white;
-  position: absolute;
-  top: 0;
-  left: 35px;
-  width: 350px;
+.story-banner img {
+  width: 775px;
   height: 450px;
-  border: 6px solid #c9941871;
-}
-
-.story-banner .studio-image {
-  background: white;
-  position: absolute;
-  bottom: 0;
-  right: 35px;
-  width: 250px;
-  height: 250px;
   border: 6px solid #c9941871;
 }
 

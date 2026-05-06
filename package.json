@@ -9,7 +9,7 @@
     "build": "lerna run build",
     "lint": "eslint .",
     "server": "npx tsx server/rose-hips-main.ts",
-    "restart-server": "pm2 restart server/dist/rose-hips-main.js",
+    "restart-server": "pm2 restart /var/www/server/dist/rose-hips-main.js",
     "host": "git pull && npm run build && npm run restart-server"
   },
   "dependencies": {

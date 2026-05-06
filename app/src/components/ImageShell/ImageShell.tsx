@@ -1,10 +1,11 @@
 import './ImageShell.css'
 import star from '../../assets/star.png'
-import portrait from '../../assets/portrait.jpg'
+import portrait from '../../assets/homeImages/portrait.jpg'
+import philosophy from '../../assets/homeImages/philosophyPic.jpeg'
 import sun from '../../assets/sun.png'
 import bellyDanceForTheSoul from '../../assets/classesImages/bellyDanceForTheSoul.jpg'
 
-type SrcOptions = 'star' | 'portrait' | 'sun' | ClassOptions
+type SrcOptions = 'star' | 'sun' | 'portrait' | 'philosophy' | ClassOptions
 
 type ClassOptions = 'bellyDanceForTheSoul'
 
@@ -21,10 +22,12 @@ export default function ImageShell({ src, alt, width, height }: Props) {
         switch (src) {
             case 'star':
                 return star
-            case 'portrait':
-                return portrait
             case 'sun':
                 return sun
+            case 'portrait':
+                return portrait
+            case 'philosophy':
+                return philosophy
             case 'bellyDanceForTheSoul':
                 return bellyDanceForTheSoul
         }
