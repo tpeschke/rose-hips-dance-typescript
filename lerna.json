@@ -1,7 +1,7 @@
 {
     "packages": [
         "app",
-        "backend/**/*"
+        "server"
     ],
     "command": {
         "version": {
