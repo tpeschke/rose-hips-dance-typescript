@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import RegisterWithCashAndCheque from "./components/RegisterWithCashAndCheque";
 import { useNavigate } from "react-router-dom";
-import { CLIENT_ID, ENVIRONMENT } from "../../../../../app-config";
+import { CLIENT_ID, ENVIRONMENT, SERVER_ENDPOINT } from "../../../../../app-config";
 
 interface Props {
     classes: ClassInterface[],
@@ -62,7 +62,7 @@ export default function PayPalButtonsDisplay({ classes, canSubmit, registrationI
     const approvedWithoutPaying = async (hasPaid: boolean) => {
         const classTitles = registrationInfo.classes.map(({ title }) => title)
 
-        const { status } = await axios.post('/api/register', {
+        const { status } = await axios.post(SERVER_ENDPOINT + '/api/register', {
             ...registrationInfo,
             classes: classTitles,
             hasPaid,

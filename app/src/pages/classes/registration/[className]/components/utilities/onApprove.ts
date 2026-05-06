@@ -1,11 +1,12 @@
 import { OnApproveDataOneTimePayments } from "@paypal/react-paypal-js/sdk-v6";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { SERVER_ENDPOINT } from "../../../../../../app-config";
 
 export default async function onApprove(inputData: OnApproveDataOneTimePayments): Promise<boolean | void> {
     try {
         const { data } = await axios.get(
-            "/api/orders/" + inputData.orderId
+            SERVER_ENDPOINT + "/api/orders/" + inputData.orderId
         );
 
         const orderData = await JSON.parse(data);

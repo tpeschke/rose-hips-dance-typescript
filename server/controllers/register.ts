@@ -22,11 +22,11 @@ interface RegisterRequest extends Request {
         hasAgreed: boolean,
         recommendation: string,
         hasPaid: boolean,
-        amount: string
+        amount: number
     }
 }
 
-export async function register(request: RegisterRequest, response: Response) {
+export async function registerStudentForClass(request: RegisterRequest, response: Response) {
     const { firstName, lastName, phoneNumber, email, classes, hasAgreed, recommendation, hasPaid, amount } = request.body;
 
     const canSubmit =
@@ -43,11 +43,11 @@ export async function register(request: RegisterRequest, response: Response) {
 
     const serviceAccountAuth = new JWT({
         email: GOOGLE_SERVICE_ACCOUNT_EMAIL,
-        key: (GOOGLE_PRIVATE_KEY ?? '').split(String.raw`\n`).join('\n'),
+        key: (GOOGLE_PRIVATE_KEY).split(String.raw`\n`).join('\n'),
         scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
-    const doc = new GoogleSpreadsheet(GOOGLE_SPREADSHEET_ID ?? '', serviceAccountAuth);
+    const doc = new GoogleSpreadsheet(GOOGLE_SPREADSHEET_ID, serviceAccountAuth);
 
     await doc.loadInfo()
     const sheet = doc.sheetsByIndex[0]

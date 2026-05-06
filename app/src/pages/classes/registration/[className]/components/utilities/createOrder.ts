@@ -1,11 +1,12 @@
 import { PurchaseUnitRequest } from "@paypal/paypal-server-sdk";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { SERVER_ENDPOINT } from "../../../../../../app-config";
 
 export default async function createOrder(cart: PurchaseUnitRequest[]): Promise<{ orderId: string }> {
     try {
         const { data } = await axios.post(
-            "/api/orders/create",
+            SERVER_ENDPOINT + "/api/orders/create",
             {
                 cart
             }

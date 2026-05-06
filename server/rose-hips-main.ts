@@ -9,7 +9,7 @@ import path from 'path'
 
 import { Response, Request } from './apiInterfaces/apiInterfaces'
 import { SERVER } from './server-config'
-import { register } from './controllers/register'
+import { registerStudentForClass } from './controllers/register'
 
 const app = express()
 app.use(bodyParser.json({ limit: '10mb' }))
@@ -17,7 +17,7 @@ app.use(cors())
 
 // ================================== \\
 
-app.post('/api/register', register)
+app.post('/api/register', registerStudentForClass);
 
 app.use(express.static(__dirname + `/../app/dist`));
 app.all('/{*any}', (_: Request, response: Response) => {
@@ -27,5 +27,5 @@ app.all('/{*any}', (_: Request, response: Response) => {
 // ================================== \\
 
 app.listen(SERVER, () => {
-    console.log(`The night lays like a lullaby on the earth ${SERVER}`)
+    console.log(`The sweet always turns to bitter ${SERVER}`)
 })
