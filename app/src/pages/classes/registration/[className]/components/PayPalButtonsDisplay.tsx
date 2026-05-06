@@ -1,12 +1,13 @@
-import { OnApproveDataOneTimePayments, PayPalGuestPaymentButton, PayPalOneTimePaymentButton, PayPalProvider, VenmoOneTimePaymentButton } from "@paypal/react-paypal-js/sdk-v6";
+import { OnApproveDataOneTimePayments, PayPalOneTimePaymentButton, PayPalProvider, VenmoOneTimePaymentButton } from "@paypal/react-paypal-js/sdk-v6";
 import createOrder from "./utilities/createOrder";
 import onApprove from "./utilities/onApprove";
 import { ClassInterface } from "../page";
 import './PayPalButtonDisplay.css'
-import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import axios from "axios";
 import RegisterWithCashAndCheque from "./components/RegisterWithCashAndCheque";
+import { useNavigate } from "react-router-dom";
+import { CLIENT_ID, ENVIRONMENT } from "../../../../../app-config";
 
 interface Props {
     classes: ClassInterface[],
@@ -17,9 +18,9 @@ interface Props {
 }
 
 export default function PayPalButtonsDisplay({ classes, canSubmit, registrationInfo }: Props) {
-    const router = useRouter()
+    const navigate = useNavigate();
 
-    const clientId = process.env.ENVIRONMENT === 'Sandbox' ? 'test' : process.env.CLIENT_ID
+    const clientId = ENVIRONMENT === 'Sandbox' ? 'test' : CLIENT_ID
 
     const total = classes.reduce((currentTotal, { cost }) => currentTotal + cost, 0)
     const items = classes.map(({ title, cost }) => {
@@ -79,7 +80,7 @@ export default function PayPalButtonsDisplay({ classes, canSubmit, registrationI
             classes: classTitles.join(','),
         });
 
-        router.push('/classes/welcome?' + params.toString())
+        navigate('/classes/welcome?' + params.toString())
     }
 
     return (

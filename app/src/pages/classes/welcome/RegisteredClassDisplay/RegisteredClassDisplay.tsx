@@ -1,5 +1,4 @@
-import classInfo from "@/app/utilities/classInfo"
-import { mhiora } from "@/app/utilities/fonts"
+import classInfo from '../../utilities/classInfo';
 import './RegisteredClassDisplay.css'
 
 interface Props {
@@ -31,21 +30,21 @@ export default function RegisteredClassDisplay({ nameOfClass }: Props) {
         <div className="registered-class-display">
             <h3>{title}</h3>
             <p>
-                <strong className={`${mhiora.className} antialiased`}>
+                <strong>
                     Time:{"\n"}
                 </strong>{" "}
                 {time}
             </p>
             {address ? (
                 <p>
-                    <strong className={`${mhiora.className} antialiased`}>
+                    <strong>
                         Location:{" "}
                     </strong>{" "}
                     {address}
                 </p>
             ) : (
                 <p>
-                    <strong className={`${mhiora.className} antialiased`}>
+                    <strong>
                         Location:{"\n"}
                     </strong>{" "}
                     Online

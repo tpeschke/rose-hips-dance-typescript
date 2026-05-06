@@ -1,11 +1,15 @@
 @font-face {
-  font-family: mhiora; /* set name */
-  src: url('./assets/fonts/Mhiora.otf'); /* url of the font */
+  font-family: mhiora;
+  /* set name */
+  src: url('./assets/fonts/Mhiora.otf');
+  /* url of the font */
 }
 
 @font-face {
-  font-family: lemonade; /* set name */
-  src: url('./assets/fonts/MinimalistLemonade.otf'); /* url of the font */
+  font-family: lemonade;
+  /* set name */
+  src: url('./assets/fonts/MinimalistLemonade.otf');
+  /* url of the font */
 }
 
 :root {
@@ -41,12 +45,15 @@ html::-webkit-scrollbar-thumb {
 h1,
 h2,
 h3,
-p {
+p,
+label,
+strong {
   margin: 0;
   font-family: lemonade;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: mhiora;
 }
 

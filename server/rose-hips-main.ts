@@ -9,6 +9,7 @@ import path from 'path'
 
 import { Response, Request } from './apiInterfaces/apiInterfaces'
 import { SERVER } from './server-config'
+import { register } from './controllers/register'
 
 const app = express()
 app.use(bodyParser.json({ limit: '10mb' }))
@@ -16,7 +17,7 @@ app.use(cors())
 
 // ================================== \\
 
-// app.use('/api/guides', guidesRoutes)
+app.post('/api/register', register)
 
 app.use(express.static(__dirname + `/../app/dist`));
 app.all('/{*any}', (_: Request, response: Response) => {

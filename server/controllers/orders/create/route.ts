@@ -1,0 +1,91 @@
+import { OrdersController, ApiError, Client, LogLevel, CheckoutPaymentIntent, PurchaseUnitRequest } from "@paypal/paypal-server-sdk";
+import getEnvironmentVariables from "../../utilities/getEnvironmentVariables";
+import { NextRequest } from "next/server";
+
+const {
+    clientID,
+    clientSecret,
+    environment
+} = getEnvironmentVariables()
+
+const client = new Client({
+    clientCredentialsAuthCredentials: {
+        oAuthClientId: clientID,
+        oAuthClientSecret: clientSecret,
+    },
+    timeout: 0,
+    environment,
+    logging: {
+        logLevel: LogLevel.Info,
+        logRequest: { logBody: true },
+        logResponse: { logHeaders: true },
+    },
+});
+
+const ordersController = new OrdersController(client);
+
+interface Request {
+    body: {
+        cart: PurchaseUnitRequest[]
+    }
+}
+
+const createOrder = async (cart: PurchaseUnitRequest[])
+    : Promise<
+        {
+            jsonResponse: any,
+            httpStatusCode: any
+        } | undefined
+    > => {
+    const collect = {
+        body: {
+            intent: CheckoutPaymentIntent.Capture,
+            purchaseUnits: cart,
+        },
+        prefer: "return=minimal",
+    };
+
+
+    try {
+        const { body, ...httpResponse } = await ordersController.createOrder(
+            collect
+        );
+        // Get more response info...
+        // const { statusCode, headers } = httpResponse;
+        return {
+            jsonResponse: body,
+            httpStatusCode: httpResponse.statusCode,
+        };
+    } catch (error) {
+        if (error instanceof ApiError) {
+            // const { statusCode, headers } = error;
+            throw new Error(error.message);
+        }
+    }
+};
+
+export async function POST(req: NextRequest) {
+    try {
+        // use the cart information passed from the front-end to calculate the order amount details
+        const { cart } = await req.json();
+        const response = await createOrder(cart);
+        if (response) {
+            const { jsonResponse, httpStatusCode } = response
+            return new Response(JSON.stringify(jsonResponse), {
+                status: httpStatusCode,
+                headers: { 'Content-Type': 'application/json' }
+            })
+        } else {
+            return new Response(JSON.stringify({ error: "Failed to create order." }), {
+                status: 500,
+                headers: { 'Content-Type': 'application/json' }
+            })
+        }
+    } catch (error) {
+        console.error("Failed to create order:", error);
+        return new Response(JSON.stringify({ error: "Failed to create order." }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' }
+        })
+    }
+}

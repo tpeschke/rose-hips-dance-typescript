@@ -1,25 +1,21 @@
-"use client";
 import "./registration.css";
-import Link from "next/link";
-import { mhiora, lemonade } from "../../../utilities/fonts";
 import { ChangeEvent, useEffect, useState } from "react";
-import classInfo from "../../../utilities/classInfo";
-import BackgroundImages from "@/app/components/backgroundImages/backgroundImages";
 import { Bounce, ToastContainer } from "react-toastify";
 import PayPalButtonsDisplay from "./components/PayPalButtonsDisplay";
 import validateEmail from "./components/utilities/validateEmail";
 import { formatPhoneNumber, validatePhoneNumber } from "./components/utilities/phoneUtilities";
+import { Link, useParams } from "react-router-dom";
+import BackgroundImages from "../../../../components/backgroundImages/backgroundImages";
+import classInfo from "../../utilities/classInfo";
 
 export interface ClassInterface {
   title: string,
   cost: number
 }
 
-export default function Registration({
-  params,
-}: {
-  params: Promise<{ className: string }>;
-}) {
+export default function Registration() {
+  const params = useParams()
+
   const [firstName, setFirstName] = useState<string | null>(null);
   const [lastName, setLastName] = useState<string | null>(null);
 
@@ -71,31 +67,31 @@ export default function Registration({
     hasAgreed;
 
   useEffect(() => {
-    params.then(({ className }) => {
-      if (className && className !== "no-class") {
-        const decodedClassName = decodeURI(className)
-        const classIndex = classSelectOptions.findIndex(option => option.title === decodedClassName)
+    const classTitle = params.classTitle
 
-        if (classIndex > -1) {
-          const { title, cost } = classSelectOptions[classIndex]
-          setClasses([{ title, cost }]);
-        }
+    if (classTitle && classTitle !== "no-class") {
+      const decodedClassName = decodeURI(classTitle)
+      const classIndex = classSelectOptions.findIndex(option => option.title === decodedClassName)
+
+      if (classIndex > -1) {
+        const { title, cost } = classSelectOptions[classIndex]
+        setClasses([{ title, cost }]);
       }
-    });
+    }
   }, [params]);
 
   return (
     <div className="registration">
       <BackgroundImages />
       <div className="class-registration-card">
-        <h1 className={`${mhiora.className} antialiased`}> Class Registration</h1 >
+        <h1> Class Registration</h1 >
         <p className="subtitle">
           Completing this form will register you as a student at Rose Hips
           Dance.
         </p>
         <p className="subtitle">
           Still have questions? Send us a message using via our{" "}
-          <Link href="/contact">Contact Page</Link>
+          <Link to="/contact">Contact Page</Link>
         </p>
         <br />
         <p className="subtitle">
@@ -140,7 +136,7 @@ export default function Registration({
                   onClick={(_) =>
                     setClasses(classes.filter((title) => title !== className))
                   }
-                  className={`${lemonade.className} full-transparent delete`}
+                  className='delete'
                 >
                   {className.title} (${className.cost})
                   <span>X</span>
@@ -170,7 +166,7 @@ export default function Registration({
               </select>
               <button
                 onClick={addSelectedClass}
-                className={`${lemonade.className} full-transparent`}
+                className='full-transparent'
               >
                 Add Class
               </button>
@@ -179,7 +175,6 @@ export default function Registration({
 
           <h2>How did you hear about Rose Hips Dance?</h2>
           <textarea
-            className={`${lemonade.className} antialiased`}
             onChange={(event) => setRecommendation(event.target.value)}
             maxLength={1000}
           />
