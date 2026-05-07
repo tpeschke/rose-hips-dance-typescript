@@ -8,6 +8,7 @@ import axios from "axios";
 import RegisterWithCashAndCheck from "./components/RegisterWithCashAndCheck";
 import { useNavigate } from "react-router-dom";
 import { CLIENT_ID, ENVIRONMENT, SERVER_ENDPOINT } from "../../../../../app-config";
+import ImageShell from "../../../../../components/ImageShell/ImageShell";
 
 interface Props {
     classes: ClassInterface[],
@@ -85,7 +86,14 @@ export default function PayPalButtonsDisplay({ classes, canSubmit, registrationI
 
     return (
         <div className="paypal-buttons">
-            <PayPalProvider
+            <div>
+                <ImageShell src="venmo" alt={"Venmo QR Code"} width={206} height={260} />
+
+                <p>For PayPal: @TiarraStout</p>
+            </div>
+
+
+            {/* <PayPalProvider
                 clientId={clientId}
                 components={["paypal-payments", "venmo-payments"]}
                 pageType="checkout"
@@ -102,7 +110,7 @@ export default function PayPalButtonsDisplay({ classes, canSubmit, registrationI
                     presentationMode={'auto'}
                     disabled={!canSubmit}
                 />
-            </PayPalProvider>
+            </PayPalProvider> */}
 
             <RegisterWithCashAndCheck
                 disabled={!canSubmit}

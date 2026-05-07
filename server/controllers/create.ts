@@ -30,10 +30,7 @@ interface CreateRequest extends Request {
     }
 }
 
-const getOrderDetailsFromPayPal = async (cart: PurchaseUnitRequest[])
-    : Promise<
-        any | undefined
-    > => {
+const getOrderDetailsFromPayPal = async (cart: PurchaseUnitRequest[]): Promise< any | undefined > => {
     const collect = {
         body: {
             intent: CheckoutPaymentIntent.Capture,

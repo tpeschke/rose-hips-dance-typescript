@@ -5,8 +5,9 @@ import philosophy from '../../assets/homeImages/philosophyPic.jpeg'
 import sun from '../../assets/sun.png'
 import bellyDanceForTheSoul from '../../assets/classesImages/bellyDanceForTheSoul.jpg'
 import morningMovement from '../../assets/classesImages/morningMovement.jpg'
+import venmo from '../../assets/venmoQR.jpg'
 
-type SrcOptions = 'star' | 'sun' | 'portrait' | 'philosophy' | ClassOptions
+type SrcOptions = 'star' | 'sun' | 'portrait' | 'philosophy' | 'venmo' | ClassOptions
 
 export type ClassOptions = 'bellyDanceForTheSoul' | 'morningMovement'
 
@@ -33,6 +34,8 @@ export default function ImageShell({ src, alt, width, height }: Props) {
                 return bellyDanceForTheSoul
             case 'morningMovement':
                 return morningMovement
+            case 'venmo':
+                return venmo
         }
     }
 

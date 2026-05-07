@@ -34,9 +34,7 @@ const sendOrderToPayPal = async (orderID: string)
     };
 
     try {
-        const { body } = await ordersController.captureOrder(
-            collect
-        );
+        const { body } = await ordersController.captureOrder(collect);
         // Get more response info...
         // const { statusCode, headers } = httpResponse;
         return JSON.stringify(body);

@@ -7,6 +7,14 @@
     margin-bottom: 15px;
 }
 
+.paypal-buttons>div {
+    display: flex;
+}
+
+.paypal-buttons>div>p {
+    margin-left: 25px;
+}
+
 .paypal-buttons button {
     width: 225px;
     border-radius: 5px;

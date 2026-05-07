@@ -14,13 +14,14 @@ export default function RegisterWithCashAndCheck({ disabled, approvedWithoutPayi
             onClick={_ => setShowWarning(true)}
             disabled={disabled}
         >
-            Register with Cash or Check
+            {/* Register with Cash or Check */}
+            Register
         </button>
     }
 
     return (
         <>
-            <p className="warning">The Cash or Check is due at the first class. If you're playing with Cash, you must bring the exact amount.</p>
+            <p className="warning">Payment is due at the first class. If you're paying with Cash, you must bring the exact amount.</p>
             <button
                 className='gold'
                 onClick={_ => approvedWithoutPaying(false)}
