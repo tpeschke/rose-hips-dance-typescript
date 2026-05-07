@@ -29,7 +29,7 @@ export default function Footer() {
         </h1>
         <p className="subtitle">
           Belly Dance for the Soul. Restoring bodies, healing hearts, and
-          awakening joy, one movement at a time.
+          awakening joy one movement at a time.
         </p>
         <div className="strike-right">
           <ImageShell
