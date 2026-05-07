@@ -56,6 +56,19 @@
   border: 6px solid #c9941871;
 }
 
+@media (max-width: 1401px) {
+  .story-banner {
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 750px) {
+  .story-banner>div img {
+    width: 100vw;
+    height: auto;
+  }
+}
+
 @media (max-width: 426px) {
   .story-banner-shell {
     height: unset;
@@ -63,27 +76,8 @@
     padding-top: 125px;
   }
 
-  .story-banner {
-    height: unset;
-    max-height: unset;
-    flex-direction: column;
-  }
-
-  .story-banner>div:first-child {
-    width: 100vw;
-    display: flex;
-  }
-
-  .story-banner .instructor-image {
-    position: unset;
-  }
-
-  .story-banner .studio-image {
-    right: 0;
-  }
-
   .story-banner>div:last-child {
-    width: 90vw;
+    width: 95vw;
     padding: 0;
   }
 }
