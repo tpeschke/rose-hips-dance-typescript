@@ -5,7 +5,7 @@ import { ClassInterface } from "../page";
 import './PayPalButtonDisplay.css'
 import { toast } from "react-toastify";
 import axios from "axios";
-import RegisterWithCashAndCheque from "./components/RegisterWithCashAndCheque";
+import RegisterWithCashAndCheck from "./components/RegisterWithCashAndCheck";
 import { useNavigate } from "react-router-dom";
 import { CLIENT_ID, ENVIRONMENT, SERVER_ENDPOINT } from "../../../../../app-config";
 
@@ -104,7 +104,7 @@ export default function PayPalButtonsDisplay({ classes, canSubmit, registrationI
                 />
             </PayPalProvider>
 
-            <RegisterWithCashAndCheque
+            <RegisterWithCashAndCheck
                 disabled={!canSubmit}
                 approvedWithoutPaying={approvedWithoutPaying}
             />
