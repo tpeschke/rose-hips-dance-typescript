@@ -28,7 +28,7 @@ const inPerson: ClassInfoInterface[] = [
     ],
     prereqs: [],
     time: 'Mondays at 5:30 PM\nJune 1st - July 27th (9 Weeks)',
-    location: '\n2580 Jefferson Ave, Ogden, UT 84401\nDance Studio located near the parking lot in the back',
+    location: '\nEccles Community Art Center\n2580 Jefferson Ave, Ogden, UT 84401\nDance Studio located near the parking lot in the back',
     cost: 100
   }
 ];
