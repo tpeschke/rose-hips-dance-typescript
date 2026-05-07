@@ -1,4 +1,4 @@
-import classInfo from '../../utilities/classInfo';
+import classInfo, { ClassInfoInterface } from '../../utilities/classInfo';
 import './RegisteredClassDisplay.css'
 
 interface Props {
@@ -6,16 +6,7 @@ interface Props {
 }
 
 export default function RegisteredClassDisplay({ nameOfClass }: Props) {
-    const [info]: {
-        title: string;
-        image?: string;
-        skillLevel: string;
-        body: string[];
-        prereqs: never[];
-        time: string;
-        address?: string;
-        cost: number;
-    }[] = [
+    const [info]: ClassInfoInterface[] = [
         ...classInfo.inPerson,
         ...classInfo.online
     ].filter(singleClassInfo => singleClassInfo.title === nameOfClass)
@@ -24,7 +15,7 @@ export default function RegisteredClassDisplay({ nameOfClass }: Props) {
         return <></>
     }
 
-    const { title, time, address } = info
+    const { title, time, location } = info
 
     return (
         <div className="registered-class-display">
@@ -35,12 +26,12 @@ export default function RegisteredClassDisplay({ nameOfClass }: Props) {
                 </strong>{" "}
                 {time}
             </p>
-            {address ? (
+            {location ? (
                 <p>
                     <strong>
                         Location:{" "}
                     </strong>{" "}
-                    {address}
+                    {location}
                 </p>
             ) : (
                 <p>
