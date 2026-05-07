@@ -1,30 +1,33 @@
 const inPerson = [
   {
     title: "Belly Dance for the Soul",
-    image: "bellyDanceForTheSoul.jpg",
+    image: "bellyDanceForTheSoul",
     skillLevel: "All",
     body: [
-      "ALL ages, body types, and skills levels are welcome",
+      "This is a 9 week series.",
       "Find joy and healing through belly dance and other therapeutic movements within a space that strongly emphasizes community connection.",
+      "ALL ages, body types, and skills levels are welcome.",
     ],
     prereqs: [],
     time: 'Mondays at 5:30 PM\nJune 1st - July 27th (9 Weeks)',
-    address: '\n2580 Jefferson Ave, Ogden, UT 84401\nDance Studio located near the parking lot in the back',
+    location: '\n2580 Jefferson Ave, Ogden, UT 84401\nDance Studio located near the parking lot in the back',
     cost: 100
   }
 ];
 
 const online = [
   {
-    title: "Restorative Belly Dance Online",
+    title: "Morning Movement",
+    image: "morningMovement",
     skillLevel: "All",
     body: [
-      "Restorative Belly Dance specifically focuses on the restorative properties of community, breath work, somatic work, and dance",
-      "Each activity listed above is used to help restore different aspects of the Self within a space that strongly focuses on community connections",
+      "Start your day with breathing techniques and flowing movements that gently wake up your system and focus awareness to cultivate and balance the body’s vital energy. Rooted in the centuries-old practice of Qigong, this class helps with stress relief and relaxation, improves flexibility and circulation, and supports mental clarity and focus. However other therapeutic movements outside of Qigong are included based upon student needs.",
+      "Due to the gentle nature of this practice, this class is accessible to all age ranges and most health conditions."
     ],
     prereqs: [],
-    time: 'Christmas Eve, 5 am',
-    cost: 25
+    time: 'Mondays, 9 am MST',
+    location: 'Via Google Meet Link',
+    cost: '$35 for 5 class pass, $50 for 10 class pass'
   },
 ];
 

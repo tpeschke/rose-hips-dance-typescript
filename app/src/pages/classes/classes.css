@@ -77,15 +77,13 @@
 }
 
 .image-shell {
-  position: relative;
   border: 6px solid #ffffffb9;
   position: relative;
-  height: 400px;
+  height: 439px;
 }
 
 .image-shell h1 {
   margin: 0;
-  position: absolute;
   width: 100%;
   text-align: center;
   background: #ffffffb9;

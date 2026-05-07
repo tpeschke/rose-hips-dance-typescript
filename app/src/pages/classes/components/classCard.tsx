@@ -1,23 +1,23 @@
 import { Link } from "react-router-dom";
-import ImageShell from "../../../components/ImageShell/ImageShell";
+import ImageShell, { ClassOptions } from "../../../components/ImageShell/ImageShell";
 import { createID } from "../utilities/classInfo";
 
 interface Props {
   classDetails: {
     title: string,
-    image?: string,
+    image: ClassOptions,
     skillLevel: string,
     body: string[],
     prereqs: string[],
     time: string,
-    address?: string,
-    cost: number
+    location?: string,
+    cost: number | string
   };
   isOdd: Boolean;
 }
 
 export default function ClassCard({ classDetails, isOdd }: Props) {
-  const { title, image = 'bellyDanceForSoul.jpg', skillLevel, body, prereqs, time, address, cost } = classDetails;
+  const { title, image, skillLevel, body, prereqs, time, location, cost } = classDetails;
 
   function formatPrereqs(prereqs: string[]) {
     if (prereqs.length === 0) return "None";
@@ -35,7 +35,7 @@ export default function ClassCard({ classDetails, isOdd }: Props) {
         <div id={createID(title)} className="nav-id"></div>
         <h1>{title}</h1>
         <ImageShell
-          src='bellyDanceForTheSoul'
+          src={image}
           alt={title}
           width={400}
           height={400}
@@ -65,17 +65,17 @@ export default function ClassCard({ classDetails, isOdd }: Props) {
           </strong>{" "}
           {time}
         </p>
-        {address && <p>
+        {location && <p>
           <strong>
-            Address:{" "}
+            Location:{" "}
           </strong>{" "}
-          {address}
+          {location}
         </p>}
         <p>
           <strong>
             Cost:{" "}
           </strong>{" "}
-          ${cost} (for series)
+          {formatCost(cost)}
         </p>
         <Link to={`/classes/registration/${title}`}>
           <button className='transparent'>
@@ -85,4 +85,13 @@ export default function ClassCard({ classDetails, isOdd }: Props) {
       </div>
     </div>
   );
+}
+
+
+function formatCost(cost: number | string) {
+  if (typeof cost === 'number') {
+    return `$${cost} (for series)`
+  }
+
+  return cost
 }
