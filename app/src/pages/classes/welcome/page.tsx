@@ -38,7 +38,7 @@ export default function Welcome() {
                 <p>I'm excited to be a part of your healing journey and look forward to getting to know you.</p>
 
                 <h2 className='eyebrow'>Next Steps</h2>
-                <p>Save the following information (if you loose it; no worries, you can always reach out via our <Link to='/contact'>Contact Page</Link>).</p>
+                <p>Save the following information (if you lose it, no worries, you can always reach out via our <Link to='/contact'>Contact Page</Link>).</p>
 
                 <div>
                     {registeredClasses?.map((nameOfClass: string, index: number) => {
