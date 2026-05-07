@@ -4,13 +4,16 @@ import "./classes.css";
 import ClassCard from "./components/classCard";
 import Spacer from "./components/divider";
 import BackgroundImages from "../../components/backgroundImages/backgroundImages";
-import classInfo from "./utilities/classInfo";
+import classInfo, { ClassInfoInterface } from "./utilities/classInfo";
 import ImageShell from "../../components/ImageShell/ImageShell";
+import { useLocation } from "react-router-dom";
+
+type FilterOptions = "inPerson" | "online" | "oneOnOne" | null
 
 export default function Classes() {
-  const [filter, setFilter] = useState<
-    "inPerson" | "online" | "oneOnOne" | null
-  >(null);
+  const { hash } = useLocation();
+
+  const [filter, setFilter] = useState<FilterOptions>(null);
 
   // const changeFilter = (newFilter: "inPerson" | "online" | "oneOnOne") => {
   //   if (newFilter === filter) {
@@ -20,10 +23,21 @@ export default function Classes() {
   //   }
   // };
 
-  const onlineIndexAddOn = !filter ? classInfo.inPerson.length : 0;
+  const secondSectionIndexAddOn = !filter ? classInfo.inPerson.length : 0;
   // const oneOnOneIndexAddOn = !filter
-  //   ? onlineIndexAddOn + classInfo.online.length
+  //   ? secondSectionIndexAddOn + classInfo.online.length
   //   : 0;
+
+  const sections = hash === '#online' ?
+    [
+      ClassOptionsBySection(filter, "online", "Online", "online", classInfo.online, 0),
+      ClassOptionsBySection(filter, "inPerson", "In Person", "in-person", classInfo.inPerson, secondSectionIndexAddOn)
+    ]
+    :
+    [
+      ClassOptionsBySection(filter, "inPerson", "In Person", "in-person", classInfo.inPerson, 0),
+      ClassOptionsBySection(filter, "online", "Online", "online", classInfo.online, secondSectionIndexAddOn)
+    ]
 
   return (
     <div className="classes">
@@ -46,34 +60,43 @@ export default function Classes() {
           Online
         </button>
       </div> */}
-      {(!filter || filter === "inPerson") && (
+      <>
+        {sections.map((section, index) => {
+          return (
+            <Fragment key={index}>
+              {section}
+            </Fragment>
+          )
+        })}
+      </>
+      <div className="spacer"></div>
+    </div>
+  );
+}
+
+function ClassOptionsBySection(
+  filter: FilterOptions,
+  filterString: string,
+  content: string,
+  id: string,
+  sectionClasses: ClassInfoInterface[],
+  secondSectionIndexAddOn: number
+) {
+  return (
+    <>
+      {(!filter || filter === filterString) && (
         <>
-          {formatHeader("In Person", "in-person")}
-          {classInfo.inPerson.map((classDetails, index) => (
+          {formatHeader(content, id)}
+          {sectionClasses.map((classDetails, index) => (
             <Fragment key={classDetails.title}>
-              <ClassCard classDetails={classDetails} isOdd={index % 2 === 1} />
+              <ClassCard classDetails={classDetails} isOdd={(secondSectionIndexAddOn + index) % 2 === 1} />
               {index !== classInfo.inPerson.length - 1 && <Spacer />}
             </Fragment>
           ))}
         </>
       )}
-      {(!filter || filter === "online") && (
-        <>
-          {formatHeader("Online", "online")}
-          {classInfo.online.map((classDetails, index) => (
-            <Fragment key={classDetails.title}>
-              <ClassCard
-                classDetails={classDetails}
-                isOdd={(onlineIndexAddOn + index) % 2 === 1}
-              />
-              {index !== classInfo.online.length - 1 && <Spacer />}
-            </Fragment>
-          ))}
-        </>
-      )}
-      <div className="spacer"></div>
-    </div>
-  );
+    </>
+  )
 }
 
 function formatHeader(content: string, id: string) {

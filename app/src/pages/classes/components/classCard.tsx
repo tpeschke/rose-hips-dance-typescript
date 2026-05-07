@@ -1,18 +1,9 @@
 import { Link } from "react-router-dom";
-import ImageShell, { ClassOptions } from "../../../components/ImageShell/ImageShell";
-import { createID } from "../utilities/classInfo";
+import ImageShell from "../../../components/ImageShell/ImageShell";
+import { ClassInfoInterface, createID } from "../utilities/classInfo";
 
 interface Props {
-  classDetails: {
-    title: string,
-    image: ClassOptions,
-    skillLevel: string,
-    body: string[],
-    prereqs: string[],
-    time: string,
-    location?: string,
-    cost: number | string
-  };
+  classDetails: ClassInfoInterface
   isOdd: Boolean;
 }
 

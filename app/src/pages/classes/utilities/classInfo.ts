@@ -1,4 +1,17 @@
-const inPerson = [
+import { ClassOptions } from "../../../components/ImageShell/ImageShell";
+
+export interface ClassInfoInterface {
+  title: string,
+  image: ClassOptions,
+  skillLevel: string,
+  body: string[],
+  prereqs: string[],
+  time: string,
+  location: string,
+  cost: number | string
+}
+
+const inPerson: ClassInfoInterface[] = [
   {
     title: "Belly Dance for the Soul",
     image: "bellyDanceForTheSoul",
@@ -15,7 +28,7 @@ const inPerson = [
   }
 ];
 
-const online = [
+const online: ClassInfoInterface[] = [
   {
     title: "Morning Movement",
     image: "morningMovement",
