@@ -7,10 +7,11 @@ import { formatPhoneNumber, validatePhoneNumber } from "./components/utilities/p
 import { Link, useParams } from "react-router-dom";
 import BackgroundImages from "../../../../components/backgroundImages/backgroundImages";
 import classInfo from "../../utilities/classInfo";
+import getClassSelectOptions from "./utilities/getClassSelectOptions";
 
 export interface ClassInterface {
   title: string,
-  cost: number
+  cost: number,
 }
 
 export default function Registration() {
@@ -34,12 +35,7 @@ export default function Registration() {
 
   const [classes, setClasses] = useState<ClassInterface[]>([]);
 
-  const classSelectOptions = [
-    ...classInfo.inPerson,
-    ...classInfo.online,
-  ].filter((classOption) => {
-    return classes.findIndex(option => option.title === classOption.title) === -1;
-  });
+  const classSelectOptions = getClassSelectOptions(classInfo, classes);
 
   const [selectedClass, setSelectedClass] = useState<ClassInterface | null>(null);
 
@@ -131,7 +127,7 @@ export default function Registration() {
           </h2>
           <ul>
             {classes.map((className) => (
-              <li key={className.title}>
+              <li key={className.title + className.cost}>
                 <button
                   onClick={(_) =>
                     setClasses(classes.filter((title) => title !== className))
@@ -161,7 +157,7 @@ export default function Registration() {
               >
                 {classSelectOptions.map((classOption) => {
                   const { title, cost } = classOption
-                  return <option key={title} value={title}>{title} (${cost})</option>
+                  return <option key={title + cost} value={title}>{title} (${cost})</option>
                 })}
               </select>
               <button

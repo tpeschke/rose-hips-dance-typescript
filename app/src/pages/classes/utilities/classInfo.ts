@@ -1,5 +1,10 @@
 import { ClassOptions } from "../../../components/ImageShell/ImageShell";
 
+export interface ClassPassOption {
+  number: number,
+  cost: number
+}
+
 export interface ClassInfoInterface {
   title: string,
   image: ClassOptions,
@@ -8,7 +13,7 @@ export interface ClassInfoInterface {
   prereqs: string[],
   time: string,
   location: string,
-  cost: number | string
+  cost: number | ClassPassOption[]
 }
 
 const inPerson: ClassInfoInterface[] = [
@@ -40,7 +45,16 @@ const online: ClassInfoInterface[] = [
     prereqs: [],
     time: 'Mondays, 9 am MST',
     location: 'Via Google Meet Link',
-    cost: '$35 for 5 class pass, $50 for 10 class pass'
+    cost: [
+      {
+        number: 5,
+        cost: 35
+      },
+      {
+        number: 10,
+        cost: 50
+      }
+    ]
   },
 ];
 

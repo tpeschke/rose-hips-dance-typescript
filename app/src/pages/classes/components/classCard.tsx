@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import ImageShell from "../../../components/ImageShell/ImageShell";
-import { ClassInfoInterface, createID } from "../utilities/classInfo";
+import { ClassInfoInterface, ClassPassOption, createID } from "../utilities/classInfo";
 
 interface Props {
   classDetails: ClassInfoInterface
@@ -68,21 +68,25 @@ export default function ClassCard({ classDetails, isOdd }: Props) {
           </strong>{" "}
           {formatCost(cost)}
         </p>
-        <Link to={`/classes/registration/${title}`}>
-          <button className='transparent'>
-            Book This Class
-          </button>
-        </Link>
+        <div>
+          <Link to={`/classes/registration/${title}`}>
+            <button className='transparent'>
+              Book This Class
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
 }
 
 
-function formatCost(cost: number | string) {
+function formatCost(cost: number | ClassPassOption[]) {
   if (typeof cost === 'number') {
     return `$${cost} (for series)`
   }
 
-  return cost
+  return cost.reduce((currentString: string, { number, cost }: ClassPassOption, index: number) => {
+    return currentString + `${index > 0 ? ', ' : ''}$${cost} for ${number} class pass`
+  }, '')
 }
