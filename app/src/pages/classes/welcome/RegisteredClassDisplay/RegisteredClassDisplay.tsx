@@ -15,7 +15,7 @@ export default function RegisteredClassDisplay({ nameOfClass }: Props) {
         return <></>
     }
 
-    const { title, time, location } = info
+    const { title, time, location, additionalInfo } = info
 
     return (
         <div className="registered-class-display">
@@ -26,20 +26,21 @@ export default function RegisteredClassDisplay({ nameOfClass }: Props) {
                 </strong>{" "}
                 {time}
             </p>
-            {location ? (
+            <p>
+                <strong>
+                    Location:{" "}
+                </strong>{" "}
+                {location}
+            </p>
+            {additionalInfo ? (
                 <p>
                     <strong>
-                        Location:{" "}
+                        Additional Info:{"\n"}
                     </strong>{" "}
-                    {location}
+                    {additionalInfo}
                 </p>
             ) : (
-                <p>
-                    <strong>
-                        Location:{"\n"}
-                    </strong>{" "}
-                    Online
-                </p>
+                <></>
             )}
         </div>
     )
