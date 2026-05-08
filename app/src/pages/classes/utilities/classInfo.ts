@@ -28,7 +28,7 @@ const inPerson: ClassInfoInterface[] = [
       "ALL ages, body types, and skills levels are welcome.",
     ],
     prereqs: [],
-    time: 'Mondays at 5:30 PM\nJune 1st - July 27th (9 Weeks)',
+    time: 'Mondays at 5:30 - 6:30 PM\nJune 1st - July 27th (9 Weeks)',
     location: '\nEccles Community Art Center\n2580 Jefferson Ave, Ogden, UT 84401\nDance Studio located near the parking lot in the back',
     cost: 100,
     additionalInfo: "To enter the building, use the code 208"
@@ -45,7 +45,7 @@ const online: ClassInfoInterface[] = [
       "Due to the gentle nature of this practice, this class is accessible to all age ranges and most health conditions."
     ],
     prereqs: [],
-    time: 'Mondays, 9 am MST',
+    time: 'Mondays, 9 - 9:30 AM MST',
     location: 'Via Google Meet Link',
     cost: [
       {
@@ -56,7 +56,8 @@ const online: ClassInfoInterface[] = [
         number: 10,
         cost: 50
       }
-    ]
+    ],
+    additionalInfo: "A Google Meet link will be sent to you via email about 10 minutes before class starts."
   },
 ];
 

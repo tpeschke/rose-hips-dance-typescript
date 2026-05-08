@@ -162,9 +162,9 @@ export default function Registration() {
               </select>
               <button
                 onClick={addSelectedClass}
-                className='full-transparent'
+                className='add-to-checkout gold'
               >
-                Add Class
+                Add to Checkout
               </button>
             </div>
           )}
