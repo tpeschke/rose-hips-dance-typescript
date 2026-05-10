@@ -84,10 +84,22 @@
 
 .registration .total-shell {
   padding: 5px 15px;
+  color: var(--gold);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.registration .add-class-shell {
+  display: flex;
+  align-items: center;
+}
+
+.registration .add-class-shell > * {
+  margin-left: 15px;
+  font-weight: unset;
 }
 
 .registration .add-to-checkout {
-  margin-left: 15px;
   padding: 5px 10px;
 }
 

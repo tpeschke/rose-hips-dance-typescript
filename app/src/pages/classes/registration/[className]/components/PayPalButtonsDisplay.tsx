@@ -12,13 +12,22 @@ import ImageShell from "../../../../../components/ImageShell/ImageShell";
 
 interface Props {
     classes: ClassInterface[],
-    canSubmit: boolean,
+    submittedInfo: {
+        firstName: boolean,
+        lastName: boolean,
+        phoneNumber: boolean,
+        validPhoneNumber: boolean,
+        email: boolean,
+        validEmail: boolean,
+        classes: boolean,
+        hasAgreed: boolean
+    },
     registrationInfo: {
         firstName: string | null, lastName: string | null, phoneNumber: string | null, email: string | null, classes: ClassInterface[], hasAgreed: boolean, recommendation: string | null
     }
 }
 
-export default function PayPalButtonsDisplay({ classes, canSubmit, registrationInfo }: Props) {
+export default function PayPalButtonsDisplay({ classes, submittedInfo, registrationInfo }: Props) {
     const navigate = useNavigate();
 
     const clientId = ENVIRONMENT === 'Sandbox' ? 'test' : CLIENT_ID
@@ -113,7 +122,7 @@ export default function PayPalButtonsDisplay({ classes, canSubmit, registrationI
             </PayPalProvider> */}
 
             <RegisterWithCashAndCheck
-                disabled={!canSubmit}
+                submittedInfo={submittedInfo}
                 approvedWithoutPaying={approvedWithoutPaying}
             />
         </div>

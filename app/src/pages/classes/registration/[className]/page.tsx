@@ -52,15 +52,16 @@ export default function Registration() {
 
   const [hasAgreed, setHasAgreed] = useState(false);
 
-  const canSubmit =
-    !!firstName &&
-    !!lastName &&
-    !!phoneNumber &&
-    validatePhoneNumber(phoneNumber) &&
-    !!email &&
-    validateEmail(email) &&
-    classes.length > 0 &&
-    hasAgreed;
+  const submittedInfo = {
+    firstName: !!firstName,
+    lastName: !!lastName,
+    phoneNumber: !!phoneNumber,
+    validPhoneNumber: validatePhoneNumber(phoneNumber),
+    email: !!email,
+    validEmail: validateEmail(email),
+    classes: classes.length > 0,
+    hasAgreed
+  }
 
   useEffect(() => {
     const classTitle = params.classTitle
@@ -104,7 +105,7 @@ export default function Registration() {
             <input onChange={(event) => setFirstName(event.target.value.trim())} maxLength={150} placeholder="First" />
           </span>
           <span>
-            <input onChange={(event) => setLastName(event.target.value.trim())} maxLength={150} placeholder="Second" />
+            <input onChange={(event) => setLastName(event.target.value.trim())} maxLength={150} placeholder="Last" />
           </span>
 
           <h2>
@@ -123,30 +124,11 @@ export default function Registration() {
           {(hasAgreed && email && !validateEmail(email)) && <p className="warning">Email isn't valid</p>}
 
           <h2>
-            Classes <strong>*</strong>
+            Check Out<strong>*</strong>
           </h2>
-          <ul>
-            {classes.map((className) => (
-              <li key={className.title + className.cost}>
-                <button
-                  onClick={(_) =>
-                    setClasses(classes.filter((title) => title !== className))
-                  }
-                  className='delete'
-                >
-                  {className.title} (${className.cost})
-                  <span>X</span>
-                </button>
-              </li>
-            ))}
-            <li>
-              <span className="total-shell">
-                Total: ${classes.reduce((currentValue, { cost }) => currentValue + cost, 0)}
-              </span>
-            </li>
-          </ul>
           {classSelectOptions.length > 0 && (
-            <div>
+            <div className="add-class-shell">
+              <p>Add Classes:</p>
               <select
                 onChange={(event) => {
                   const classOptionIndex = classSelectOptions.findIndex(option => option.title === event.target.value)
@@ -168,6 +150,32 @@ export default function Registration() {
               </button>
             </div>
           )}
+
+          <ul>
+            <li>
+              <span className="total-shell">
+                Current Basket:
+              </span>
+            </li>
+            {classes.map((className) => (
+              <li key={className.title + className.cost}>
+                <button
+                  onClick={(_) =>
+                    setClasses(classes.filter((title) => title !== className))
+                  }
+                  className='delete'
+                >
+                  {className.title} (${className.cost})
+                  <span>X</span>
+                </button>
+              </li>
+            ))}
+            <li>
+              <span className="total-shell">
+                Total: ${classes.reduce((currentValue, { cost }) => currentValue + cost, 0)}
+              </span>
+            </li>
+          </ul>
 
           <h2>How did you hear about Rose Hips Dance?</h2>
           <textarea
@@ -203,7 +211,7 @@ export default function Registration() {
 
           <PayPalButtonsDisplay
             classes={classes}
-            canSubmit={canSubmit}
+            submittedInfo={submittedInfo}
             registrationInfo={{ firstName, lastName, phoneNumber, email, classes, hasAgreed, recommendation }}
           />
         </div>

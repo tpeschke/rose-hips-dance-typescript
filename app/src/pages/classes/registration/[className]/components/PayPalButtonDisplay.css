@@ -19,3 +19,8 @@
     width: 225px;
     border-radius: 5px;
 }
+
+.paypal-buttons .orange {
+    background: #b07200;
+    padding: 15px;
+}
