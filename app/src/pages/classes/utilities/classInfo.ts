@@ -24,8 +24,8 @@ const inPerson: ClassInfoInterface[] = [
     skillLevel: "All",
     body: [
       "This is a 9 week series.",
-      "Find joy and healing through belly dance and other therapeutic movements within a space that strongly emphasizes community connection.",
-      "ALL ages, body types, and skills levels are welcome.",
+      "Discover joy, healing, and self-expression through belly dance and therapeutic movement in a welcoming, community-centered space. Through dance, we deepen our connection to ourselves, to one another, and to the world around us. We celebrate all ages, body types, and experience levels — come exactly as you are.",
+      "We age when we stop moving. Our pain grows when we stop connecting."
     ],
     prereqs: [],
     time: 'Mondays at 5:30 - 6:30 PM\nJune 1st - July 27th (9 Weeks)',
