@@ -69,7 +69,7 @@ export default function ClassCard({ classDetails, isOdd }: Props) {
           {formatCost(cost)}
         </p>
         <div>
-          <Link to={`/classes/registration/${title}`}>
+          <Link to={`/classes/registration`}>
             <button className='transparent'>
               Book This Class
             </button>
