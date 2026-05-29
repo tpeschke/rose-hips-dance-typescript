@@ -63,6 +63,9 @@ export default function Header() {
         <li>
           <Link to="/classes">Classes</Link>
         </li>
+        <li>
+          <Link to="/testimonials">Testimonials</Link>
+        </li>
         {/* <li>Our Story</li> */}
         <li><Link to="/contact">Contact</Link></li>
         <li>

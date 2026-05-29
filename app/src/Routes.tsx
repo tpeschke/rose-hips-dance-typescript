@@ -5,6 +5,7 @@ import Classes from "./pages/classes/page";
 import RegistrationNoClass from "./pages/classes/registration/page";
 import Registration from "./pages/classes/registration/[className]/page";
 import Welcome from "./pages/classes/welcome/page";
+import Testimonials from "./pages/testimonials/Testimonials";
 
 export default function AllRoutes() {
     return (
@@ -26,6 +27,9 @@ export default function AllRoutes() {
             } />
             <Route path="classes/registration/:classTitle" element={
                 <Registration />
+            } />
+            <Route path="testimonials" element={
+                <Testimonials />
             } />
             <Route path="*" element={<Navigate to='/' replace />} />
         </Routes>

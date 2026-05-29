@@ -1,0 +1,62 @@
+.testimonials {
+    position: relative;
+    overflow: hidden;
+    padding: 60px 0 0;
+    background: var(--prussianBlue);
+}
+
+.testimonial-card-shell {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonial-card-shell .testimonial-card {
+    width: 75%;
+    margin: 15px 0;
+    padding: 35px;
+    display: flex;
+    justify-content: center;
+    background: var(--burgundy);
+    z-index: 2;
+}
+
+.testimonial-card-shell .testimonial-card.odd {
+    flex-direction: row-reverse;
+}
+
+.testimonial-card-shell .testimonial-card h1 {
+    color: var(--gold);
+    min-width: 18%;
+}
+
+.testimonial-card-shell .testimonial-card.odd h1 {
+    text-align: right;
+}
+
+.testimonial-card-shell .testimonial-card p {
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.testimonial-card-shell .testimonial-card p:last-child {
+    margin-bottom: 0;
+}
+
+.testimonial-card-shell .testimonial-card .middle-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px;
+}
+
+.testimonial-card-shell .testimonial-card .middle-divider img {
+    filter: invert(81%) sepia(29%) saturate(6897%) hue-rotate(3deg) brightness(89%) contrast(81%);
+}
+
+.testimonial-card-shell .testimonial-card .middle-divider .gold-divider {
+    height: calc(100% - 35px);
+    width: 1px;
+    background: var(--gold)
+}
