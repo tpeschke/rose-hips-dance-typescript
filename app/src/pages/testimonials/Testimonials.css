@@ -2,7 +2,7 @@
     position: relative;
     overflow: hidden;
     padding: 60px 0 0;
-    background: var(--prussianBlue);
+    background: var(--burgundy);
 }
 
 .testimonial-card-shell {
@@ -19,7 +19,28 @@
     display: flex;
     justify-content: center;
     background: var(--burgundy);
+    border: 1px solid rgba(201, 148, 24, 0.2);
+    filter: drop-shadow(5px 5px 10px #000000);
     z-index: 2;
+}
+
+.testimonial-card-shell .testimonial-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--burgundy),
+    var(--gold),
+    var(--burgundy)
+  );
+}
+
+.testimonial-card-shell .testimonial-card:last-child {
+    margin-bottom: 30px;
 }
 
 .testimonial-card-shell .testimonial-card.odd {
