@@ -17,11 +17,11 @@ interface Props {
 export default function RegisterWithCashAndCheck({ submittedInfo, approvedWithoutPaying }: Props) {
     const [showMissingInfo, setShowMissingInfo] = useState(false)
 
+    const [showWarning, setShowWarning] = useState(false)
+
     const { firstName, lastName, phoneNumber, validPhoneNumber, email, validEmail, classes, hasAgreed } = submittedInfo
 
     const canSubmit = firstName && lastName && phoneNumber && validPhoneNumber && email && validEmail && classes && hasAgreed
-
-    const [showWarning, setShowWarning] = useState(false)
 
     if (!showWarning) {
         return (
@@ -43,8 +43,7 @@ export default function RegisterWithCashAndCheck({ submittedInfo, approvedWithou
                     className='gold'
                     onClick={_ => canSubmit ? setShowWarning(true) : setShowMissingInfo(true)}
                 >
-                    {/* Register with Cash or Check */}
-                    Register
+                    Register with Cash or Check
                 </button>
             </>
         )
@@ -52,8 +51,7 @@ export default function RegisterWithCashAndCheck({ submittedInfo, approvedWithou
 
     return (
         <>
-            {/* <p className="orange">Payment is due at the first class. If you're paying with Cash, you must bring the exact amount.</p> */}
-            <p className="orange">Please make sure that you paid via PayPal or Venmo before completing your registration.</p>
+            <p className="orange">Payment is due at the first class. If you're paying with Cash, you must bring the exact amount.</p>
             <button
                 className='gold'
                 onClick={_ => approvedWithoutPaying(false)}

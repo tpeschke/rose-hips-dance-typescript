@@ -32,6 +32,10 @@ export default function PayPalButtonsDisplay({ classes, submittedInfo, registrat
 
     const clientId = ENVIRONMENT === 'Sandbox' ? 'test' : CLIENT_ID
 
+    const { firstName, lastName, phoneNumber, validPhoneNumber, email, validEmail, hasAgreed } = submittedInfo
+
+    const canSubmit = firstName && lastName && phoneNumber && validPhoneNumber && email && validEmail && classes.length > 0 && hasAgreed
+
     const total = classes.reduce((currentTotal, { cost }) => currentTotal + cost, 0)
     const items = classes.map(({ title, cost }) => {
         return {
@@ -95,14 +99,7 @@ export default function PayPalButtonsDisplay({ classes, submittedInfo, registrat
 
     return (
         <div className="paypal-buttons">
-            <div>
-                <ImageShell src="venmo" alt={"Venmo QR Code"} width={206} height={260} />
-
-                <p>For PayPal: @TiarraStout</p>
-            </div>
-
-
-            {/* <PayPalProvider
+            <PayPalProvider
                 clientId={clientId}
                 components={["paypal-payments", "venmo-payments"]}
                 pageType="checkout"
@@ -119,12 +116,12 @@ export default function PayPalButtonsDisplay({ classes, submittedInfo, registrat
                     presentationMode={'auto'}
                     disabled={!canSubmit}
                 />
-            </PayPalProvider> */}
+            </PayPalProvider>
 
-            <RegisterWithCashAndCheck
+            {/* <RegisterWithCashAndCheck
                 submittedInfo={submittedInfo}
                 approvedWithoutPaying={approvedWithoutPaying}
-            />
+            /> */}
         </div>
     )
 }
