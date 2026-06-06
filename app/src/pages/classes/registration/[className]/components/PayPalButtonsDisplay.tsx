@@ -29,7 +29,7 @@ export default function PayPalButtonsDisplay({ classes, submittedInfo, registrat
     const navigate = useNavigate();
 
     const clientId = ENVIRONMENT === 'Sandbox' ? 'test' : CLIENT_ID
-console.log(clientId)
+
     const { firstName, lastName, phoneNumber, validPhoneNumber, email, validEmail, hasAgreed } = submittedInfo
 
     const canSubmit = firstName && lastName && phoneNumber && validPhoneNumber && email && validEmail && classes.length > 0 && hasAgreed
