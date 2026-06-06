@@ -39,7 +39,6 @@ const getOrderDetailsFromPayPal = async (cart: PurchaseUnitRequest[]): Promise< 
         prefer: "return=minimal",
     };
 
-
     try {
         const { body } = await ordersController.createOrder(collect);
         return JSON.stringify(body);

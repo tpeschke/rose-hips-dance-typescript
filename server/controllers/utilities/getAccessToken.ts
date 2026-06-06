@@ -1,11 +1,14 @@
 import axios from "axios"
-import { CLIENT_ID, CLIENT_SECRET, PAYPAL_ENDPOINT } from "../../server-config"
+import { CLIENT_ID, CLIENT_SECRET } from "../../server-config"
+import getEnvironmentVariables from "./getEnvironmentVariables"
 
 export default async function getAccessToken() {
     const auth = `${CLIENT_ID}:${CLIENT_SECRET}`
 
+    const { endpointURL } = getEnvironmentVariables()
+
     const { data } = await axios.post(
-        PAYPAL_ENDPOINT + '/v1/oauth2/token',
+        endpointURL + '/v1/oauth2/token',
         { grant_type: 'client_credentials' },
         {
             headers: {
