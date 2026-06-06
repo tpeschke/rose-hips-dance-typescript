@@ -32,19 +32,6 @@ const inPerson: ClassInfoInterface[] = [
     location: '\nEccles Community Art Center\n2580 Jefferson Ave, Ogden, UT 84401\nDance Studio located near the parking lot in the back',
     cost: 100,
     additionalInfo: "To enter the building, use the code 208"
-  },
-    {
-    title: "TEST CLASS",
-    image: "bellyDanceForTheSoul",
-    skillLevel: "All",
-    body: [
-      "THIS IS A TEST"
-    ],
-    prereqs: [],
-    time: 'TEST',
-    location: 'TEST',
-    cost: 1,
-    additionalInfo: "To enter the building, use the code 208"
   }
 ];
 
