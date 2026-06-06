@@ -5,10 +5,8 @@ import { ClassInterface } from "../page";
 import './PayPalButtonDisplay.css'
 import { toast } from "react-toastify";
 import axios from "axios";
-import RegisterWithCashAndCheck from "./components/RegisterWithCashAndCheck";
 import { useNavigate } from "react-router-dom";
 import { CLIENT_ID, ENVIRONMENT, SERVER_ENDPOINT } from "../../../../../app-config";
-import ImageShell from "../../../../../components/ImageShell/ImageShell";
 
 interface Props {
     classes: ClassInterface[],
