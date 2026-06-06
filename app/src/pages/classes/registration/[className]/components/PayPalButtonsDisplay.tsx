@@ -29,6 +29,7 @@ export default function PayPalButtonsDisplay({ classes, submittedInfo, registrat
     const navigate = useNavigate();
 
     const clientId = ENVIRONMENT === 'Sandbox' ? 'test' : CLIENT_ID
+    const environment = ENVIRONMENT === 'Sandbox' ? 'sandbox' : 'production'
 
     const { firstName, lastName, phoneNumber, validPhoneNumber, email, validEmail, hasAgreed } = submittedInfo
 
@@ -101,6 +102,7 @@ export default function PayPalButtonsDisplay({ classes, submittedInfo, registrat
                 clientId={clientId}
                 components={["paypal-payments", "venmo-payments"]}
                 pageType="checkout"
+                environment={environment}
             >
                 <PayPalOneTimePaymentButton
                     createOrder={() => createOrder(cart)}
