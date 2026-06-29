@@ -7,6 +7,15 @@ export interface TestimonialInfo {
 
 const testimonialQuotes: TestimonialInfo[] = [
     {
+        id: 'Em-Tinsley',
+        author: 'Em Tinsley',
+        fullQuote: [
+            "5 stars, highly recommend! Tiarra is knowledgeable, kind, patient, educates, welcomes, and encourages. She is talented in teaching, supporting, encouraging and creating a safe space for all body types, abilities and backgrounds. It is obvious that she is passionate about what she teaches and enjoys sharing her passions. Anyone would be lucky to have Tiarra as an instructor. I wish I could take all of the classes she teaches as her classes have taught me so much more than just the movements. I learned about how my body moves along with the music and cultures that the dances come from. Bottom line, Tiarra is a delight and so are her classes.",
+            "I cannot say enough about what it is like having Tiarra as a restorative dance and posture zone instructor. She is diligent in her research and preparing for each class to make sure that what she has to teach us is taught in a way that the students can understand. She is patient and kind to all of her students no matter their previous experience or abilities. I was in a class with students who had belly danced for years and others (including myself) who had never danced beyond a couple line dances. There were people in the class with different physical ability levels and Tiarra welcomed everyone, instructing in a way that made it possible for everyone to learn and participate. Tiarra creates a space that truly welcomes all body types, abilities and backgrounds. She teaches the body mechanics of the dance moves down to which muscles to activate to achieve the desired moves. One of my favorite parts was her teaching us about the music including the distinctive rhythms and what regions they come from along with how to recognize and practice them. ",
+        ],
+        pullQuote: []
+    },
+    {
         id: 'Shannon-Charlson',
         author: 'Shannon Charlson',
         fullQuote: [
