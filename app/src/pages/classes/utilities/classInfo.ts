@@ -14,7 +14,8 @@ export interface ClassInfoInterface {
   time: string,
   location: string,
   cost: number | ClassPassOption[],
-  additionalInfo?: string
+  additionalInfo?: string,
+  canceled?: boolean
 }
 
 const inPerson: ClassInfoInterface[] = [
@@ -37,6 +38,7 @@ const inPerson: ClassInfoInterface[] = [
 
 const online: ClassInfoInterface[] = [
   {
+    canceled: true,
     title: "Morning Movement",
     image: "morningMovement",
     skillLevel: "All",

@@ -108,6 +108,14 @@
   color: var(--gold);
 }
 
+.class-body .warning {
+  margin-bottom: 15px;
+}
+
+.class-body .warning p {
+  margin: 15px 0;
+}
+
 @media (max-width: 426px) {
   .classes .filter-buttons {
     width: 100vw;

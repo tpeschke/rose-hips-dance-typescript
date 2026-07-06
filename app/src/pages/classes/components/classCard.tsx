@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function ClassCard({ classDetails, isOdd }: Props) {
-  const { title, image, skillLevel, body, prereqs, time, location, cost } = classDetails;
+  const { title, image, skillLevel, body, prereqs, time, location, cost, canceled } = classDetails;
 
   function formatPrereqs(prereqs: string[]) {
     if (prereqs.length === 0) return "None";
@@ -33,6 +33,7 @@ export default function ClassCard({ classDetails, isOdd }: Props) {
         />
       </div>
       <div className="class-body">
+        {canceled && <div className="warning"><p>This Class is Currently Paused</p></div>}
         <p>
           <strong>
             Skill Level:{" "}
