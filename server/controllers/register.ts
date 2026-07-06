@@ -19,7 +19,8 @@ interface RegisterRequest extends Request {
         phoneNumber: string,
         email: string,
         classes: string[],
-        hasAgreed: boolean,
+        hasAgreedWaiver: boolean,
+        hasAgreedRefund: boolean,
         recommendation: string,
         hasPaid: boolean,
         amount: number
@@ -27,7 +28,7 @@ interface RegisterRequest extends Request {
 }
 
 export async function registerStudentForClass(request: RegisterRequest, response: Response) {
-    const { firstName, lastName, phoneNumber, email, classes, hasAgreed, recommendation, hasPaid, amount } = request.body;
+    const { firstName, lastName, phoneNumber, email, classes, hasAgreedWaiver, hasAgreedRefund, recommendation, hasPaid, amount } = request.body;
 
     const canSubmit =
         !!firstName &&
@@ -35,7 +36,8 @@ export async function registerStudentForClass(request: RegisterRequest, response
         !!phoneNumber &&
         !!email &&
         classes.length > 0 &&
-        hasAgreed;
+        hasAgreedWaiver &&
+        hasAgreedRefund;
 
     if (!canSubmit) {
         return response.send({ registered: false })
@@ -57,7 +59,8 @@ export async function registerStudentForClass(request: RegisterRequest, response
         'Phone Number': phoneNumber,
         'Email': email,
         'Classes': classes.toString(),
-        'Agreed to Waiver': hasAgreed,
+        'Agreed to Waiver': hasAgreedWaiver,
+        'Understood Refund': hasAgreedRefund,
         'Recommendation Source': recommendation,
         'Paid': hasPaid,
         'Date Paid': hasPaid ? getTodaysDate() : '',

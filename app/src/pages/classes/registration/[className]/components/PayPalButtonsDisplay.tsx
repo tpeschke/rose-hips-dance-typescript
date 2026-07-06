@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { CLIENT_ID, ENVIRONMENT, SERVER_ENDPOINT } from "../../../../../app-config";
+import RegisterWithCashAndCheck from "./components/RegisterWithCashAndCheck";
 
 interface Props {
     classes: ClassInterface[],
@@ -18,10 +19,11 @@ interface Props {
         email: boolean,
         validEmail: boolean,
         classes: boolean,
-        hasAgreed: boolean
+        hasAgreedWaiver: boolean,
+        hasAgreedRefund: boolean
     },
     registrationInfo: {
-        firstName: string | null, lastName: string | null, phoneNumber: string | null, email: string | null, classes: ClassInterface[], hasAgreed: boolean, recommendation: string | null
+        firstName: string | null, lastName: string | null, phoneNumber: string | null, email: string | null, classes: ClassInterface[], hasAgreedWaiver: boolean, hasAgreedRefund: boolean, recommendation: string | null
     }
 }
 
@@ -31,9 +33,9 @@ export default function PayPalButtonsDisplay({ classes, submittedInfo, registrat
     const clientId = ENVIRONMENT === 'Sandbox' ? 'test' : CLIENT_ID
     const environment = ENVIRONMENT === 'Sandbox' ? 'sandbox' : 'production'
 
-    const { firstName, lastName, phoneNumber, validPhoneNumber, email, validEmail, hasAgreed } = submittedInfo
+    const { firstName, lastName, phoneNumber, validPhoneNumber, email, validEmail, hasAgreedWaiver, hasAgreedRefund } = submittedInfo
 
-    const canSubmit = firstName && lastName && phoneNumber && validPhoneNumber && email && validEmail && classes.length > 0 && hasAgreed
+    const canSubmit = firstName && lastName && phoneNumber && validPhoneNumber && email && validEmail && classes.length > 0 && hasAgreedWaiver && hasAgreedRefund
 
     const total = classes.reduce((currentTotal, { cost }) => currentTotal + cost, 0)
     const items = classes.map(({ title, cost }) => {

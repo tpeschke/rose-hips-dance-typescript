@@ -9,7 +9,8 @@ interface Props {
         email: boolean,
         validEmail: boolean,
         classes: boolean,
-        hasAgreed: boolean
+        hasAgreedWaiver: boolean,
+        hasAgreedRefund: boolean,
     }
     approvedWithoutPaying: (hasPaid: boolean) => void
 }
@@ -19,9 +20,9 @@ export default function RegisterWithCashAndCheck({ submittedInfo, approvedWithou
 
     const [showWarning, setShowWarning] = useState(false)
 
-    const { firstName, lastName, phoneNumber, validPhoneNumber, email, validEmail, classes, hasAgreed } = submittedInfo
+    const { firstName, lastName, phoneNumber, validPhoneNumber, email, validEmail, classes, hasAgreedWaiver, hasAgreedRefund } = submittedInfo
 
-    const canSubmit = firstName && lastName && phoneNumber && validPhoneNumber && email && validEmail && classes && hasAgreed
+    const canSubmit = firstName && lastName && phoneNumber && validPhoneNumber && email && validEmail && classes && hasAgreedWaiver && hasAgreedRefund
 
     if (!showWarning) {
         return (
@@ -35,7 +36,7 @@ export default function RegisterWithCashAndCheck({ submittedInfo, approvedWithou
                         {!email && <p className="warning">You haven't added your Email. Please add it in the "Email" section above.</p >}
                         {!validEmail && <p className="warning">Your Email is invalid. Please update it in the "Email" section above.</p >}
                         {!classes && <p className="warning">You're missing classes. Please add at least one class in the "Check Out" section above.</p >}
-                        {!hasAgreed && <p className="warning">You haven't agreed to the liability wavier. Please mark "I Agree" in the section above.</p >}
+                        {!hasAgreedWaiver && <p className="warning">You haven't agreed to the liability wavier. Please mark "I Agree" in the section above.</p >}
                     </>
                 )
                 }

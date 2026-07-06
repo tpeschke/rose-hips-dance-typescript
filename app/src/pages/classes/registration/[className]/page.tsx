@@ -51,7 +51,8 @@ export default function Registration() {
 
   const [recommendation, setRecommendation] = useState<string | null>(null);
 
-  const [hasAgreed, setHasAgreed] = useState(false);
+  const [hasAgreedWaiver, setHasAgreedWaiver] = useState(false);
+  const [hasAgreedRefund, setHasAgreedRefund] = useState(false);
 
   const submittedInfo = {
     firstName: !!firstName,
@@ -61,7 +62,8 @@ export default function Registration() {
     email: !!email,
     validEmail: validateEmail(email),
     classes: classes.length > 0,
-    hasAgreed
+    hasAgreedWaiver,
+    hasAgreedRefund
   }
 
   useEffect(() => {
@@ -122,13 +124,13 @@ export default function Registration() {
             maxLength={16}
             onChange={formatAndSetPhoneNumber}
           />
-          {(hasAgreed && phoneNumber && !validatePhoneNumber(phoneNumber)) && <p className="warning">Phone Number isn't valid</p>}
+          {(hasAgreedWaiver && hasAgreedRefund && phoneNumber && !validatePhoneNumber(phoneNumber)) && <p className="warning">Phone Number isn't valid</p>}
 
           <h2>
             Email <strong>*</strong>
           </h2>
           <input onChange={(event) => setEmail(event.target.value)} />
-          {(hasAgreed && email && !validateEmail(email)) && <p className="warning">Email isn't valid</p>}
+          {(hasAgreedWaiver && hasAgreedRefund && email && !validateEmail(email)) && <p className="warning">Email isn't valid</p>}
 
           <h2>
             Check Out<strong>*</strong>
@@ -207,11 +209,26 @@ export default function Registration() {
 
           <span className="agreement">
             <input
-              onChange={(_) => setHasAgreed(!hasAgreed)}
+              onChange={(_) => setHasAgreedWaiver(!hasAgreedWaiver)}
               type="checkbox"
-              checked={hasAgreed}
+              checked={hasAgreedWaiver}
             />
             <label>I agree</label>
+          </span>
+
+          <br />
+
+          <p className="disclaimer">
+            A full refund is available up to a week before the first class. After that point there will be no refunds.
+          </p>
+
+          <span className="agreement">
+            <input
+              onChange={(_) => setHasAgreedRefund(!hasAgreedRefund)}
+              type="checkbox"
+              checked={hasAgreedRefund}
+            />
+            <label>I Understand</label>
           </span>
 
           <br />
@@ -219,7 +236,7 @@ export default function Registration() {
           <PayPalButtonsDisplay
             classes={classes}
             submittedInfo={submittedInfo}
-            registrationInfo={{ firstName, lastName, phoneNumber, email, classes, hasAgreed, recommendation }}
+            registrationInfo={{ firstName, lastName, phoneNumber, email, classes, hasAgreedWaiver, hasAgreedRefund, recommendation }}
           />
         </div>
       </div >
