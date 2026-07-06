@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import BackgroundImages from '../../../components/backgroundImages/backgroundImages';
 import ImageShell from '../../../components/ImageShell/ImageShell';
 import RotatingSun from '../../../components/rotatingSun/rotatingSun';
+import Seo from '../../../seo/Seo';
 import './welcome.css'
 import { useEffect } from 'react';
 import RegisteredClassDisplay from './RegisteredClassDisplay/RegisteredClassDisplay';
@@ -21,6 +22,12 @@ export default function Welcome() {
 
     return (
         <div className="welcome-page">
+            <Seo
+                title="Welcome | Rose Hips Dance"
+                description="You're registered for classes at Rose Hips Dance."
+                path="/classes/welcome"
+                noindex
+            />
             <BackgroundImages />
             <RotatingSun />
             <div className="welcome-card">

@@ -1,5 +1,7 @@
 import BackgroundImages from '../../components/backgroundImages/backgroundImages'
 import ImageShell from '../../components/ImageShell/ImageShell'
+import Seo from '../../seo/Seo'
+import { testimonialsBreadcrumb } from '../../seo/structuredData'
 import './Testimonials.css'
 import testimonialQuotes, { TestimonialInfo } from './utilities/testimonialsQuotes'
 
@@ -64,6 +66,12 @@ export default function Testimonials() {
 
     return (
         <div className='testimonials'>
+            <Seo
+                title="Testimonials | Rose Hips Dance"
+                description="Read what students say about Tiarra Anaya and Rose Hips Dance — belly dance and therapeutic movement classes that welcome all body types, abilities, and backgrounds."
+                path="/testimonials"
+                jsonLd={testimonialsBreadcrumb}
+            />
             <div className="petal-shell">
                 {petals.map((petal, index) => {
                     return <div key={index} className="petal" style={petal}></div>;

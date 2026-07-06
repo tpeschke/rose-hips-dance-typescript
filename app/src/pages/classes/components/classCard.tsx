@@ -27,7 +27,7 @@ export default function ClassCard({ classDetails, isOdd }: Props) {
         <h1>{title}</h1>
         <ImageShell
           src={image}
-          alt={title}
+          alt={`${title} class at Rose Hips Dance`}
           width={400}
           height={400}
         />

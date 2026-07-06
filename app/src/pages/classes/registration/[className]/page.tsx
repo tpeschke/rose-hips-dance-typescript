@@ -6,6 +6,7 @@ import validateEmail from "./components/utilities/validateEmail";
 import { formatPhoneNumber, validatePhoneNumber } from "./components/utilities/phoneUtilities";
 import { Link, useParams } from "react-router-dom";
 import BackgroundImages from "../../../../components/backgroundImages/backgroundImages";
+import Seo from "../../../../seo/Seo";
 import classInfo from "../../utilities/classInfo";
 import getClassSelectOptions from "./utilities/getClassSelectOptions";
 
@@ -79,6 +80,12 @@ export default function Registration() {
 
   return (
     <div className="registration">
+      <Seo
+        title="Class Registration | Rose Hips Dance"
+        description="Register as a student at Rose Hips Dance and reserve your spot in belly dance and therapeutic movement classes."
+        path="/classes/registration"
+        noindex
+      />
       <BackgroundImages />
       <div className="class-registration-card">
         <h1> Class Registration</h1 >

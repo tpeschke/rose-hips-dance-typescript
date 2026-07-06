@@ -7,6 +7,8 @@ import BackgroundImages from "../../components/backgroundImages/backgroundImages
 import classInfo, { ClassInfoInterface } from "./utilities/classInfo";
 import ImageShell from "../../components/ImageShell/ImageShell";
 import { useLocation } from "react-router-dom";
+import Seo from "../../seo/Seo";
+import { classesJsonLd } from "../../seo/structuredData";
 
 type FilterOptions = "inPerson" | "online" | "oneOnOne" | null
 
@@ -41,6 +43,12 @@ export default function Classes() {
 
   return (
     <div className="classes">
+      <Seo
+        title="Classes | Rose Hips Dance — Belly Dance & Movement in Ogden, UT"
+        description="Explore Rose Hips Dance classes: in-person Belly Dance for the Soul in Ogden, Utah and online Morning Movement (Qigong). All ages, body types, and experience levels welcome."
+        path="/classes"
+        jsonLd={classesJsonLd}
+      />
       <BackgroundImages />
       {/* <div className="filter-buttons">
         <button
