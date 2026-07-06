@@ -25,18 +25,16 @@
 }
 
 .testimonial-card-shell .testimonial-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(
-    to right,
-    var(--burgundy),
-    var(--gold),
-    var(--burgundy)
-  );
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right,
+            var(--burgundy),
+            var(--gold),
+            var(--burgundy));
 }
 
 .testimonial-card-shell .testimonial-card:last-child {
@@ -80,4 +78,16 @@
     height: calc(100% - 35px);
     width: 1px;
     background: var(--gold)
+}
+
+@media (max-width: 1023px) {
+    .testimonial-card, 
+    .testimonial-card-shell .testimonial-card.odd {
+        flex-direction: column;
+    }
+
+    .testimonial-card-shell .testimonial-card h1,
+    .testimonial-card-shell .testimonial-card.odd h1 {
+        text-align: center;
+    }
 }
