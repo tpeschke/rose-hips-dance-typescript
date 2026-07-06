@@ -5,6 +5,8 @@ import { Bounce, toast, ToastContainer } from 'react-toastify';
 import ImageShell from '../../components/ImageShell/ImageShell';
 import BackgroundImages from '../../components/backgroundImages/backgroundImages';
 import RotatingSun from '../../components/rotatingSun/rotatingSun';
+import Seo from '../../seo/Seo';
+import { contactBreadcrumb } from '../../seo/structuredData';
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_KEY } from '../../app-config';
 
 export default function Contact() {
@@ -34,6 +36,12 @@ export default function Contact() {
 
     return (
         <div className="contact-page">
+            <Seo
+                title="Contact | Rose Hips Dance"
+                description="Have questions about belly dance or therapeutic movement classes at Rose Hips Dance in Ogden, Utah? Send Tiarra a message and she'll reach out shortly."
+                path="/contact"
+                jsonLd={contactBreadcrumb}
+            />
             <BackgroundImages />
             <RotatingSun />
             <div className="contact-card">

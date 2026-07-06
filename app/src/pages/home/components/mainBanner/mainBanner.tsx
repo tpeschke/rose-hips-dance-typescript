@@ -31,7 +31,7 @@ export default function MainBanner() {
         <div className="portrait">
           <ImageShell
             src="portrait"
-            alt="a hot piece of ass"
+            alt="Tiarra Anaya, founder and instructor at Rose Hips Dance"
             width={400}
             height={400}
           />

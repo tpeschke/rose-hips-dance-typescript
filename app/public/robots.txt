@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /classes/registration
+Disallow: /classes/welcome
+
+Sitemap: https://rosehipsdance.com/sitemap.xml
