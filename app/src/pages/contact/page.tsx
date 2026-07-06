@@ -1,5 +1,5 @@
 import './contact.css'
-import { Ref, useRef } from 'react';
+import { Ref, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 import ImageShell from '../../components/ImageShell/ImageShell';
@@ -11,8 +11,10 @@ import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_KEY } from '../../app-
 
 export default function Contact() {
     const form: Ref<HTMLFormElement> | undefined = useRef(null);
+    const [locked, setLocked] = useState(false)
 
     const sendEmail = (event: any) => {
+        setLocked(true)
         event.preventDefault();
 
         const interestInClass = form?.current?.getElementsByTagName('input')[0].checked
@@ -24,9 +26,11 @@ export default function Contact() {
                 .then(
                     () => {
                         toast.success('Email has been sent. I\'ll reach out shortly!')
+                        setTimeout(() => setLocked(false), 3000)
                     },
                     (error: any) => {
                         toast.error('FAILED...', error.text)
+                        setTimeout(() => setLocked(false), 3000)
                     },
                 );
         } else {
@@ -62,7 +66,7 @@ export default function Contact() {
                     <input type="text" name="name" placeholder='Name' required={true} />
                     <input type="email" name="email" placeholder='Email' required={true} />
                     <textarea name="message" placeholder='Message' required={true} />
-                    <button type="submit" className='gold'> Send </button>
+                    <button disabled={locked} type="submit" className='gold'> Send </button>
                 </form>
             </div>
             <ToastContainer

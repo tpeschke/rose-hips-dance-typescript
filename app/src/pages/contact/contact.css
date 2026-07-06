@@ -10,8 +10,9 @@
 
 .contact-page .contact-card {
   color: var(--white);
-  padding: 35px;
-  max-width: 1440px;
+  padding-top: 35px;
+  width: 100vw;
+  max-width: 500px;
   margin: 0 auto;
   text-align: center;
   z-index: 1;
@@ -43,7 +44,6 @@
 }
 
 .contact-page textarea {
-  width: 500px;
   height: 100px;
 }
 
