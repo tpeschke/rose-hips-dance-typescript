@@ -193,6 +193,21 @@ export default function Registration() {
           />
 
           <p className="disclaimer">
+            A full refund is available until a week before the first class. After that point there will be no refunds.
+          </p>
+
+          <span className="agreement">
+            <input
+              onChange={(_) => setHasAgreedRefund(!hasAgreedRefund)}
+              type="checkbox"
+              checked={hasAgreedRefund}
+            />
+            <label>I understand</label>
+          </span>
+
+          <br />
+
+          <p className="disclaimer">
             I understand that the activities I am about to take part in are
             completely voluntary. I understand that I should consult with my
             physician before beginning any new exercise program, and I realize
@@ -214,21 +229,6 @@ export default function Registration() {
               checked={hasAgreedWaiver}
             />
             <label>I agree</label>
-          </span>
-
-          <br />
-
-          <p className="disclaimer">
-            A full refund is available up to a week before the first class. After that point there will be no refunds.
-          </p>
-
-          <span className="agreement">
-            <input
-              onChange={(_) => setHasAgreedRefund(!hasAgreedRefund)}
-              type="checkbox"
-              checked={hasAgreedRefund}
-            />
-            <label>I Understand</label>
           </span>
 
           <br />
