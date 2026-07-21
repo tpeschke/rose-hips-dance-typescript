@@ -235,6 +235,7 @@ export default function Registration() {
           </span>
 
           <br />
+          <br />
 
           <PayPalButtonsDisplay
             classes={classes}
