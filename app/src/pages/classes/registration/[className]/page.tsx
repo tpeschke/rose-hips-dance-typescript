@@ -192,6 +192,8 @@ export default function Registration() {
             maxLength={1000}
           />
 
+          <br />
+          
           <p className="disclaimer">
             A full refund is available until a week before the first class. After that point there will be no refunds.
           </p>
