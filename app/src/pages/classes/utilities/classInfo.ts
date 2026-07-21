@@ -24,14 +24,14 @@ const inPerson: ClassInfoInterface[] = [
     image: "bellyDanceForTheSoul",
     skillLevel: "All",
     body: [
-      "This is a 9 week series.",
+      "This is an 8 week series.",
       "Discover joy, healing, and self-expression through belly dance and therapeutic movement in a welcoming, community-centered space. Through dance, we deepen our connection to ourselves, to one another, and to the world around us. We celebrate all ages, body types, and experience levels — come exactly as you are.",
       "We age when we stop moving. Our pain grows when we stop connecting."
     ],
     prereqs: [],
-    time: 'Mondays at 5:30 - 6:30 PM\nJune 1st - July 27th (9 Weeks)',
+    time: 'Mondays at 5:30 - 7:00 PM (Please note this is a 1.5 hour class)\nSeptember 14th - November 2nd (Please note the later start date due to Labor Day)',
     location: '\nEccles Community Art Center\n2580 Jefferson Ave, Ogden, UT 84401\nDance Studio located near the parking lot in the back',
-    cost: 100,
+    cost: 125,
     additionalInfo: "To enter the building, use the code 208"
   }
 ];
