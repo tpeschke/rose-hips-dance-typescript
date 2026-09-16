@@ -92,9 +92,10 @@
 .registration .add-class-shell {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.registration .add-class-shell > * {
+.registration .add-class-shell>* {
   margin-left: 15px;
   font-weight: unset;
 }
@@ -150,8 +151,13 @@
   }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 426px) {
   .registration button {
     margin: 5px 0;
+  }
+
+  .registration .delete span {
+    opacity: 1;
+    color: var(--gold)
   }
 }
